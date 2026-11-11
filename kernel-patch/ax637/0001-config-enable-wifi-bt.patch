@@ -1,0 +1,27 @@
+Subject: [PATCH 1/2] ax637: enable WIRELESS/CFG80211 and BT/BT_LE
+Without CONFIG_BT the esp-hosted module fails modpost because esp_bt.c
+calls hci_alloc_dev/hci_register_dev. BT_LE covers the ESP32-C5
+(BLE-only). CRYPTO_*/CRC16 come in via BT's selects.
+
+--- a/arch/arm64/configs/ax637-tiny_defconfig
++++ b/arch/arm64/configs/ax637-tiny_defconfig
+@@ -147,7 +151,18 @@
+ CONFIG_NET_SCHED=y
+ CONFIG_NET_CLS_ACT=y
+ CONFIG_CAN=y
+-# CONFIG_WIRELESS is not set
++CONFIG_WIRELESS=y
++CONFIG_CFG80211=y
++CONFIG_CFG80211_WEXT=y
++# Bluetooth: the esp-hosted host driver registers its own HCI device
++# (hci_alloc_dev/hci_register_dev in esp_bt.c), so modpost rejects the
++# module while CONFIG_BT is off. BT_LE covers the ESP32-C5 controller, which
++# is BLE-only; BT_BREDR is kept so a dual-mode module can be used later.
++# CRYPTO_*/CRC16 are pulled in by BT's selects.
++CONFIG_BT=y
++CONFIG_BT_BREDR=y
++CONFIG_BT_LE=y
++CONFIG_BT_DEBUGFS=y
+ # CONFIG_ETHTOOL_NETLINK is not set
+ CONFIG_DEVTMPFS=y
+ CONFIG_DEVTMPFS_MOUNT=y

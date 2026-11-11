@@ -1,0 +1,134 @@
+Subject: [PATCH 1/2] ax650: enable BT/BT_LE
+AX650 ships with CONFIG_BT off. The esp-hosted driver registers its own
+HCI device, so enable BT/BT_LE plus a few debugfs knobs.
+
+--- a/arch/arm64/configs/axera_AX650A_emmc_defconfig
++++ b/arch/arm64/configs/axera_AX650A_emmc_defconfig
+@@ -901,12 +1184,59 @@
+ 
+ # CONFIG_HAMRADIO is not set
+ # CONFIG_CAN is not set
+-# CONFIG_BT is not set
++CONFIG_BT=y
++CONFIG_BT_BREDR=y
++# CONFIG_BT_RFCOMM is not set
++# CONFIG_BT_BNEP is not set
++# CONFIG_BT_HIDP is not set
++# CONFIG_BT_HS is not set
++CONFIG_BT_LE=y
++# CONFIG_BT_LEDS is not set
++# CONFIG_BT_MSFTEXT is not set
++# CONFIG_BT_AOSPEXT is not set
++CONFIG_BT_DEBUGFS=y
++# CONFIG_BT_SELFTEST is not set
++# CONFIG_BT_FEATURE_DEBUG is not set
++
++#
++# Bluetooth device drivers
++#
++# CONFIG_BT_HCIBTUSB is not set
++# CONFIG_BT_HCIBTSDIO is not set
++# CONFIG_BT_HCIUART is not set
++# CONFIG_BT_HCIBCM203X is not set
++# CONFIG_BT_HCIBPA10X is not set
++# CONFIG_BT_HCIBFUSB is not set
++# CONFIG_BT_HCIVHCI is not set
++# CONFIG_BT_MRVL is not set
++# CONFIG_BT_MTKSDIO is not set
++# CONFIG_BT_MTKUART is not set
++# CONFIG_BT_VIRTIO is not set
++# end of Bluetooth device drivers
++
+ # CONFIG_AF_RXRPC is not set
+-# CONFIG_AF_KCM is not set
++CONFIG_AF_KCM=y
++CONFIG_STREAM_PARSER=y
+ # CONFIG_MCTP is not set
+-# CONFIG_WIRELESS is not set
+-# CONFIG_RFKILL is not set
++CONFIG_FIB_RULES=y
++CONFIG_WIRELESS=y
++CONFIG_WEXT_CORE=y
++CONFIG_WEXT_PROC=y
++CONFIG_CFG80211=y
++# CONFIG_NL80211_TESTMODE is not set
++# CONFIG_CFG80211_DEVELOPER_WARNINGS is not set
++# CONFIG_CFG80211_CERTIFICATION_ONUS is not set
++CONFIG_CFG80211_REQUIRE_SIGNED_REGDB=y
++CONFIG_CFG80211_USE_KERNEL_REGDB_KEYS=y
++CONFIG_CFG80211_DEFAULT_PS=y
++# CONFIG_CFG80211_DEBUGFS is not set
++CONFIG_CFG80211_CRDA_SUPPORT=y
++CONFIG_CFG80211_WEXT=y
++# CONFIG_MAC80211 is not set
++CONFIG_MAC80211_STA_HASH_MAX_SIZE=0
++CONFIG_RFKILL=y
++# CONFIG_RFKILL_INPUT is not set
++# CONFIG_RFKILL_GPIO is not set
+ # CONFIG_NET_9P is not set
+ # CONFIG_CAIF is not set
+ # CONFIG_CEPH_LIB is not set
+@@ -4737,6 +4917,7 @@
+ CONFIG_CRYPTO_AKCIPHER2=y
+ CONFIG_CRYPTO_AKCIPHER=y
+ CONFIG_CRYPTO_KPP2=y
++CONFIG_CRYPTO_KPP=y
+ CONFIG_CRYPTO_ACOMP2=y
+ CONFIG_CRYPTO_MANAGER=y
+ CONFIG_CRYPTO_MANAGER2=y
+@@ -4756,7 +4937,8 @@
+ #
+ CONFIG_CRYPTO_RSA=y
+ # CONFIG_CRYPTO_DH is not set
+-# CONFIG_CRYPTO_ECDH is not set
++CONFIG_CRYPTO_ECC=y
++CONFIG_CRYPTO_ECDH=y
+ # CONFIG_CRYPTO_ECDSA is not set
+ # CONFIG_CRYPTO_ECRDSA is not set
+ # CONFIG_CRYPTO_SM2 is not set
+@@ -4779,7 +4961,7 @@
+ # CONFIG_CRYPTO_CFB is not set
+ # CONFIG_CRYPTO_CTR is not set
+ # CONFIG_CRYPTO_CTS is not set
+-# CONFIG_CRYPTO_ECB is not set
++CONFIG_CRYPTO_ECB=y
+ # CONFIG_CRYPTO_LRW is not set
+ # CONFIG_CRYPTO_OFB is not set
+ # CONFIG_CRYPTO_PCBC is not set
+@@ -4791,7 +4973,7 @@
+ #
+ # Hash modes
+ #
+-# CONFIG_CRYPTO_CMAC is not set
++CONFIG_CRYPTO_CMAC=y
+ CONFIG_CRYPTO_HMAC=y
+ # CONFIG_CRYPTO_XCBC is not set
+ # CONFIG_CRYPTO_VMAC is not set
+@@ -4860,14 +5042,26 @@
+ # CONFIG_CRYPTO_USER_API_AEAD is not set
+ CONFIG_CRYPTO_HASH_INFO=y
+ # CONFIG_CRYPTO_HW is not set
+-# CONFIG_ASYMMETRIC_KEY_TYPE is not set
++CONFIG_ASYMMETRIC_KEY_TYPE=y
++CONFIG_ASYMMETRIC_PUBLIC_KEY_SUBTYPE=y
++CONFIG_X509_CERTIFICATE_PARSER=y
++# CONFIG_PKCS8_PRIVATE_KEY_PARSER is not set
++CONFIG_PKCS7_MESSAGE_PARSER=y
++# CONFIG_PKCS7_TEST_KEY is not set
++# CONFIG_SIGNED_PE_FILE_VERIFICATION is not set
+ 
+ #
+ # Certificates for signature checking
+ #
++CONFIG_SYSTEM_TRUSTED_KEYRING=y
++CONFIG_SYSTEM_TRUSTED_KEYS=""
++# CONFIG_SYSTEM_EXTRA_CERTIFICATE is not set
++# CONFIG_SECONDARY_TRUSTED_KEYRING is not set
+ # CONFIG_SYSTEM_BLACKLIST_KEYRING is not set
+ # end of Certificates for signature checking
+ 
++CONFIG_BINARY_PRINTF=y
++
+ #
+ # Library routines
+ #

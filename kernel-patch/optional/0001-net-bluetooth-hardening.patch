@@ -1,0 +1,116 @@
+]633;E;echo "Subject: [PATCH] net: bluetooth: harden socket/conn lookups (OPTIONAL)";17d75338-69a8-433b-9645-0d867255d517]633;CSubject: [PATCH] net: bluetooth: harden socket/conn lookups (OPTIONAL)
+
+*** 本补丁不是 Wi-Fi/BT 工作的必要条件，只针对并发注销场景的
+*** use-after-free 加固。客户可以不打。
+
+  bt_sock_linked()  - 避免对已 unlink 的 socket 取引用
+  hci_conn_valid()  - 避免对已释放的 hci_conn 解引用
+  l2cap_connect()   - 返回 chan 便于调用者校验
+
+--- a/include/net/bluetooth/bluetooth.h
++++ b/include/net/bluetooth/bluetooth.h
+@@ -383,6 +383,7 @@
+ void bt_sock_unregister(int proto);
+ void bt_sock_link(struct bt_sock_list *l, struct sock *s);
+ void bt_sock_unlink(struct bt_sock_list *l, struct sock *s);
++bool bt_sock_linked(struct bt_sock_list *l, struct sock *s);
+ int  bt_sock_recvmsg(struct socket *sock, struct msghdr *msg, size_t len,
+ 		     int flags);
+ int  bt_sock_stream_recvmsg(struct socket *sock, struct msghdr *msg,
+--- a/net/bluetooth/af_bluetooth.c
++++ b/net/bluetooth/af_bluetooth.c
+@@ -156,6 +156,34 @@
+ }
+ EXPORT_SYMBOL(bt_sock_unlink);
+ 
++/* Check whether @s is still linked in @l. Callers use this to avoid taking a
++ * reference on a socket that has already been unlinked and released, so the
++ * check must not dereference @s at all - comparing addresses is the only safe
++ * way to answer the question.
++ */
++bool bt_sock_linked(struct bt_sock_list *l, struct sock *s)
++{
++	struct sock *sk;
++	bool found = false;
++
++	if (!l || !s)
++		return false;
++
++	read_lock(&l->lock);
++
++	sk_for_each(sk, &l->head) {
++		if (sk == s) {
++			found = true;
++			break;
++		}
++	}
++
++	read_unlock(&l->lock);
++
++	return found;
++}
++EXPORT_SYMBOL(bt_sock_linked);
++
+ void bt_accept_enqueue(struct sock *parent, struct sock *sk, bool bh)
+ {
+ 	BT_DBG("parent %p, sk %p", parent, sk);
+--- a/net/bluetooth/hci_conn.c
++++ b/net/bluetooth/hci_conn.c
+@@ -326,6 +326,25 @@
+ 	return err;
+ }
+ 
++static bool hci_conn_valid(struct hci_dev *hdev, struct hci_conn *conn)
++{
++	struct hci_conn_hash *h = &hdev->conn_hash;
++	struct hci_conn  *c;
++
++	rcu_read_lock();
++
++	list_for_each_entry_rcu(c, &h->list, list) {
++		if (c == conn) {
++			rcu_read_unlock();
++			return true;
++		}
++	}
++
++	rcu_read_unlock();
++
++	return false;
++}
++
+ static int hci_enhanced_setup_sync(struct hci_dev *hdev, void *data)
+ {
+ 	struct conn_handle_t *conn_handle = data;
+--- a/net/bluetooth/l2cap_core.c
++++ b/net/bluetooth/l2cap_core.c
+@@ -4127,8 +4127,9 @@
+ 	return 0;
+ }
+ 
+-static void l2cap_connect(struct l2cap_conn *conn, struct l2cap_cmd_hdr *cmd,
+-			  u8 *data, u8 rsp_code, u8 amp_id)
++static struct l2cap_chan *l2cap_connect(struct l2cap_conn *conn,
++                                        struct l2cap_cmd_hdr *cmd,
++                                        u8 *data, u8 rsp_code, u8 amp_id)
+ {
+ 	struct l2cap_conn_req *req = (struct l2cap_conn_req *) data;
+ 	struct l2cap_conn_rsp rsp;
+@@ -4240,7 +4241,7 @@
+ 	l2cap_send_cmd(conn, cmd->ident, rsp_code, sizeof(rsp), &rsp);
+ 
+ 	if (!pchan)
+-		return;
++		return NULL;
+ 
+ 	if (result == L2CAP_CR_PEND && status == L2CAP_CS_NO_INFO) {
+ 		struct l2cap_info_req info;
+@@ -4267,6 +4268,8 @@
+ 	l2cap_chan_unlock(pchan);
+ 	mutex_unlock(&conn->chan_lock);
+ 	l2cap_chan_put(pchan);
++
++	return chan;
+ }
+ 
+ static int l2cap_connect_req(struct l2cap_conn *conn,

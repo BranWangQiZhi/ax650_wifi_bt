@@ -1,0 +1,37 @@
+Subject: [PATCH 2/2] ax650: dts: enable SDIO on the SD slot
+Same rationale as AX637: the slot holds an SDIO module, so no-sdio and
+the card-detect path must go, and cap-sdio-irq must be set.
+
+--- a/arch/arm64/boot/dts/axera/AX650_emmc.dts
++++ b/arch/arm64/boot/dts/axera/AX650_emmc.dts
+@@ -479,7 +481,29 @@
+ 	sd-uhs-sdr50;
+ 	sd-uhs-ddr50;
+ 	sd-uhs-sdr104;
+-	no-sdio;
++	/*
++	 * This slot is shared between SD cards and an SDIO module (an ESP32-C5
++	 * on an SDIO-to-SD adapter).  "no-sdio" used to be set here, which sets
++	 * MMC_CAP2_NO_SDIO and makes mmc_rescan() skip mmc_attach_sdio()
++	 * entirely - a plugged-in SDIO function then never enumerates and
++	 * /sys/bus/sdio/devices stays empty.
++	 */
++	cap-sdio-irq;
++	/*
++	 * esp_sdio calls sdio_claim_irq(); MMC_CAP_SDIO_IRQ (from the property
++	 * above) is what lets the core start the SDIO IRQ thread and enable
++	 * the DAT1 out-of-band interrupt on the controller.
++	 *
++	 * "broken-cd" is deliberately NOT set here.  It would turn on
++	 * MMC_CAP_NEEDS_POLL, and on this controller an empty slot under
++	 * continuous polling produces an endless "Got command interrupt
++	 * 0x1 even though no command operation was in progress" register
++	 * dump (measured: ~175 dmesg lines per 12 s).  Instead re-probe on
++	 * demand after inserting a card:
++	 *
++	 *   echo 30e00000.sdhc > /sys/bus/platform/drivers/sdhci-axera/unbind
++	 *   echo 30e00000.sdhc > /sys/bus/platform/drivers/sdhci-axera/bind
++	 */
+ 	no-mmc;
+ 	disable-wp;
+ 	axera,swt1v8-drv-str = <0xCC>;

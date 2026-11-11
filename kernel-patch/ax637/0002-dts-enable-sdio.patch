@@ -1,0 +1,44 @@
+Subject: [PATCH 2/2] ax637: dts: enable SDIO on the SD slot
+The slot carries a permanently inserted ESP32-C5 SDIO module instead of
+a removable TF card: drop the inherited no-sdio and the cd-gpios
+mechanical-detect path, use non-removable, and add cap-sdio-irq
+because esp_hosted calls sdio_claim_irq().
+
+--- a/arch/arm64/boot/dts/axera/ax637-demo-only-nand.dts
++++ b/arch/arm64/boot/dts/axera/ax637-demo-only-nand.dts
+@@ -340,13 +381,28 @@
+ 	sd-uhs-sdr50;
+ 	sd-uhs-ddr50;
+ 	sd-uhs-sdr104;
+-#if 0
+-	broken-cd;
+-#else
+-	cd-gpios = <&gpio4 17 0>;
+-	cd-inverted;
+-	cd-debounce-delay-ms = <300>;
+-#endif
++	/*
++	 * This slot carries a permanently inserted ESP32-C5 SDIO module, not a
++	 * removable TF card, so the mechanical detect path is dropped:
++	 *
++	 *   no-sdio    - inherited from m57.dtsi, sets MMC_CAP2_NO_SDIO and makes
++	 *                mmc_rescan() skip mmc_attach_sdio() entirely.
++	 *   cd-gpios   - the SDIO adapter does not wire the card-detect switch, so
++	 *                sdhci_get_cd() would report "no card" forever.  Removed
++	 *                in favour of "non-removable", which makes sdhci_get_cd()
++	 *                return 1 unconditionally (see drivers/mmc/host/sdhci.c).
++	 *   cap-sdio-irq - the esp_hosted driver calls sdio_claim_irq(); without
++	 *                MMC_CAP_SDIO_IRQ the core never starts the SDIO IRQ
++	 *                thread and DAT1 interrupts stay masked.
++	 *
++	 * The trade-off is the same as on AX650: with this module in the slot the
++	 * TF card cannot be used.
++	 */
++	/delete-property/ no-sdio;
++	non-removable;
++	cap-sdio-irq;
++	no-mmc;
++	disable-wp;
+ 	pwr_sw_gpio = <&gpio5 6 0>;
+ 	pwr_en_gpio = <&gpio5 5 0>;
+ 	status = "okay";

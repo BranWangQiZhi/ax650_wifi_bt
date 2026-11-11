@@ -110,6 +110,12 @@ static int adv_on(int fd, const char *name)
 	unsigned char param[25];
 	unsigned char data[40];
 	int dlen, st;
+	size_t nlen = strlen(name);
+
+	/* legacy AD 上限 31B：flags AD 3B + name AD (2+n)B，故 n <= 26。
+	 * 超长会破坏 AD 结构，对端解析不到名字，这里主动截断。 */
+	if (nlen > 26)
+		nlen = 26;
 
 	/* 0x2036 LE Set Extended Advertising Parameters (25 字节) */
 	memset(param, 0, sizeof(param));
@@ -136,11 +142,17 @@ static int adv_on(int fd, const char *name)
 	data[0] = 0x00;                         /* handle */
 	data[1] = 0x03;                         /* complete data */
 	data[2] = 0x01;                         /* frag pref */
-	data[3] = (unsigned char)(2 + 2 + strlen(name));
+	/* adv_data_len = flags AD(3B: len+type+val) + name AD(2+n: len+type+n)
+	 *              = 5 + n。
+	 * 原实现写成 2+2+n = 4+n，少算 1 字节：控制器只发出前 4+n 字节，
+	 * 名字最后一个字符被截断、name AD 长度字段与实际数据对不上，
+	 * Windows(WinRT/bleak) 因此解析 local_name 恒为空 —— 但 BD_ADDR 能扫到。
+	 * 2026-11-11 修复并实测。 */
+	data[3] = (unsigned char)(5 + nlen);
 	data[4] = 0x02; data[5] = 0x01; data[6] = 0x06;   /* flags: LE general discoverable */
-	data[7] = (unsigned char)(strlen(name) + 1);
+	data[7] = (unsigned char)(nlen + 1);
 	data[8] = 0x09;                         /* complete local name */
-	memcpy(data + 9, name, strlen(name));
+	memcpy(data + 9, name, nlen);
 	dlen = 4 + data[3];
 	st = send_cmd(fd, OP_LE_SET_EXT_ADV_DATA, data, dlen);
 	printf("LE_Set_Extended_Advertising_Data(\"%s\"): status=0x%02x\n", name, st);

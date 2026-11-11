@@ -1,0 +1,721 @@
+[    3.256037] raid6: int64x1  xor()   722 MB/s
+[    3.260316] raid6: using algorithm neonx4 gen() 2780 MB/s
+[    3.265728] raid6: .... xor() 2058 MB/s, rmw enabled
+[    3.270702] raid6: using neon recovery algorithm
+[    3.276188]  12007000.fbcdc_isp regs_num 98 
+[    3.280500] 12007000.fbcdc_isp module success!
+[    3.285045]  1a014000.fbcdc_mm regs_num 98 
+[    3.289258] 1a014000.fbcdc_mm module success!
+[    3.293994]  4528000.fbcdc_top regs_num 98 
+[    3.298205] 4528000.fbcdc_top module success!
+[    3.302825] vgaarb: loaded
+[    3.305727] SCSI subsystem initialized
+[    3.309616] libata version 3.00 loaded.
+[    3.313589] usbcore: registered new interface driver usbfs
+[    3.319106] usbcore: registered new interface driver hub
+[    3.324456] usbcore: registered new device driver usb
+[    3.329975] mc: Linux media interface: v0.10
+[    3.334268] videodev: Linux video capture interface: v2.00
+[    3.339784] pps_core: LinuxPPS API ver. 1 registered
+[    3.344759] pps_core: Software ver. 5.3.6 - Copyright 2005-2007 Rodolfo Giometti <giometti@linux.it>
+[    3.353926] PTP clock support registered
+[    3.357975] EDAC MC: Ver: 3.0.0
+[    3.361412] Advanced Linux Sound Architecture Driver Initialized.
+[    3.367868] Bluetooth: Core ver 2.22
+[    3.371470] NET: Registered PF_BLUETOOTH protocol family
+[    3.376792] Bluetooth: HCI device and connection manager initialized
+[    3.383168] Bluetooth: HCI socket layer initialized
+[    3.388057] Bluetooth: L2CAP socket layer initialized
+[    3.393125] Bluetooth: SCO socket layer initialized
+[    3.398808] clocksource: Switched to clocksource arch_sys_counter
+[    3.405030] VFS: Disk quotas dquot_6.6.0
+[    3.409006] VFS: Dquot-cache hash table entries: 512 (order 0, 4096 bytes)
+[    3.419588] NET: Registered PF_INET protocol family
+[    3.424579] IP idents hash table entries: 32768 (order: 6, 262144 bytes, linear)
+[    3.432753] tcp_listen_portaddr_hash hash table entries: 1024 (order: 2, 16384 bytes, linear)
+[    3.441348] Table-perturb hash table entries: 65536 (order: 6, 262144 bytes, linear)
+[    3.449146] TCP established hash table entries: 16384 (order: 5, 131072 bytes, linear)
+[    3.457152] TCP bind hash table entries: 16384 (order: 6, 262144 bytes, linear)
+[    3.464632] TCP: Hash tables configured (established 16384 bind 16384)
+[    3.471260] UDP hash table entries: 1024 (order: 3, 32768 bytes, linear)
+[    3.478000] UDP-Lite hash table entries: 1024 (order: 3, 32768 bytes, linear)
+[    3.485290] NET: Registered PF_UNIX/PF_LOCAL protocol family
+[    3.491290] RPC: Registered named UNIX socket transport module.
+[    3.497225] RPC: Registered udp transport module.
+[    3.501948] RPC: Registered tcp transport module.
+[    3.506661] RPC: Registered tcp NFSv4.1 backchannel transport module.
+[    3.513577] PCI: CLS 0 bytes, default 64
+[    3.518384] hw perfevents: enabled with armv8_cortex_a55 PMU driver, 7 counters available
+[    3.528138] Initialise system trusted keyrings
+[    3.532707] workingset: timestamp_bits=46 max_order=19 bucket_order=0
+[    3.542474] axera_logctl_init: of_find_compatible_node 'axera,logctl' success!!!
+[    3.542488] axera_logctl_init: of_find_compatible_node config: /etc/ax_syslog.conf
+[    3.549924] axera_logctl_init: logstate:1 1 len:2
+[    3.562229] axera_logctl_init: loglevel:4 4 len:2
+[    3.567882] NFS: Registering the id_resolver key type
+[    3.572986] Key type id_resolver registered
+[    3.577178] Key type id_legacy registered
+[    3.581249] nfs4filelayout_init: NFSv4 File Layout Driver Registering...
+[    3.587965] nfs4flexfilelayout_init: NFSv4 Flexfile Layout Driver Registering...
+[    3.595394] ntfs: driver 2.1.32 [Flags: R/W].
+[    3.600032] SGI XFS with ACLs, security attributes, scrub, repair, no debug enabled
+[    3.636726] xor: measuring software checksum speed
+[    3.644952]    8regs           :  2887 MB/sec
+[    3.652020]    32regs          :  3652 MB/sec
+[    3.659500]    arm64_neon      :  3161 MB/sec
+[    3.663865] xor: using function: 32regs (3652 MB/sec)
+[    3.668932] async_tx: api initialized (async)
+[    3.673298] Key type asymmetric registered
+[    3.677402] Asymmetric key parser 'x509' registered
+[    3.682335] Block layer SCSI generic (bsg) driver version 0.4 loaded (major 247)
+[    3.689754] io scheduler mq-deadline registered
+[    3.694294] io scheduler kyber registered
+[    3.710041] axera-pinctrl 4250200.pinctrl: initialized pinctrl driver
+[    3.719541] dmaxor:ax_dmaxor_probe:544: done.
+[    3.728749] ax_os_mem_init
+[    3.735708] Serial: 8250/16550 driver, 11 ports, IRQ sharing enabled
+[    3.743810] printk: console [ttyS0] disabled
+[    3.748113] 2016000.ax_uart: ttyS0 at MMIO 0x2016000 (irq = 33, base_baud = 12500000) is a 16550A
+[    3.757011] printk: console [ttyS0] enabled
+[    3.757011] printk: console [ttyS0] enabled
+[    3.765403] printk: bootconsole [uart8250] disabled
+[    3.765403] printk: bootconsole [uart8250] disabled
+[    3.776043] /soc/panel@0: panel without regulator power
+[    3.781378] Specify missing connector_type
+[    3.785625] /soc/panel@1: panel without regulator power
+[    3.790939] Specify missing connector_type
+[    3.799928] loop: module loaded
+[    3.814648] ahci-axera 31000000.sata: forcing port_map 0x0 -> 0xf
+[    3.820828] ahci-axera 31000000.sata: AHCI 0001.0301 32 slots 4 ports 6 Gbps 0xf impl platform mode
+[    3.829905] ahci-axera 31000000.sata: flags: 64bit ncq sntf pm led clo only pmp fbs pio slum part ccc sadm sds apst 
+[    3.840471] ahci-axera 31000000.sata: port 0 is not capable of FBS
+[    3.846950] ahci_port_start[0]: cmd_slot[vir,phy]=[0xFFFF800009F21000,0x178040000], rx_fis[vir,phy]=[0xFFFF800009F21400,0x178040400], cmd_tbl[vir,phy]=[0xFFFF800009F21500,0x178040500]
+[    3.863356] ahci-axera 31000000.sata: port 1 is not capable of FBS
+[    3.869624] ahci_port_start[1]: cmd_slot[vir,phy]=[0xFFFF800009F39000,0x178060000], rx_fis[vir,phy]=[0xFFFF800009F39400,0x178060400], cmd_tbl[vir,phy]=[0xFFFF800009F39500,0x178060500]
+[    3.886022] ahci-axera 31000000.sata: port 2 is not capable of FBS
+[    3.892315] ahci_port_start[2]: cmd_slot[vir,phy]=[0xFFFF800009F51000,0x178080000], rx_fis[vir,phy]=[0xFFFF800009F51400,0x178080400], cmd_tbl[vir,phy]=[0xFFFF800009F51500,0x178080500]
+[    3.908707] ahci-axera 31000000.sata: port 3 is not capable of FBS
+[    3.914964] ahci_port_start[3]: cmd_slot[vir,phy]=[0xFFFF800009F69000,0x1780A0000], rx_fis[vir,phy]=[0xFFFF800009F69400,0x1780A0400], cmd_tbl[vir,phy]=[0xFFFF800009F69500,0x1780A0500]
+[    3.932067] scsi host0: ahci-axera
+[    3.935765] scsi host1: ahci-axera
+[    3.939406] scsi host2: ahci-axera
+[    3.943032] scsi host3: ahci-axera
+[    3.946534] ata1: SATA max UDMA/133 mmio [mem 0x31000000-0x3100ffff] port 0x100 irq 47
+[    3.954482] ata2: SATA max UDMA/133 mmio [mem 0x31000000-0x3100ffff] port 0x180 irq 47
+[    3.962422] ata3: SATA max UDMA/133 mmio [mem 0x31000000-0x3100ffff] port 0x200 irq 47
+[    3.970361] ata4: SATA max UDMA/133 mmio [mem 0x31000000-0x3100ffff] port 0x280 irq 47
+[    3.981205] dwc3 30c00000.dwc3: axera usb0 clock init
+[    3.986292] dwc3 30c00000.dwc3: usb bus clock: 400MHz
+[    3.991386] dwc3 30c00000.dwc3: configure usb0 sw reset
+[    4.036664] dwc3 30c00000.dwc3: dr_mode is 3 (1-host 2-device 3-otg)
+[    4.043058] dwc3 30c00000.dwc3: EP NUM:16
+[    4.047194] dwc3 30c00000.dwc3: axera usb gadget init
+[    4.052266] dwc3 30c00000.dwc3: configure usb0 vbusvalid
+[    4.058357] dwc3 30d00000.dwc3: axera usb1 clock init
+[    4.063438] dwc3 30d00000.dwc3: usb bus clock: 400MHz
+[    4.068519] dwc3 30d00000.dwc3: configure usb1 sw reset
+[    4.113795] dwc3 30d00000.dwc3: dr_mode is 1 (1-host 2-device 3-otg)
+[    4.120188] dwc3 30d00000.dwc3: EP NUM:16
+[    4.124241] dwc3 30d00000.dwc3: axera usb host init
+[    4.129136] dwc3 30d00000.dwc3: configure usb1 vbusvalid
+[    4.134487] dwc3 30d00000.dwc3: usb2.0-only mode
+[    4.139298] dwc3 28100000.dwc3: axera usb2 clock init
+[    4.144369] dwc3 28100000.dwc3: usb bus clock: 350MHz
+[    4.149450] dwc3 28100000.dwc3: configure usb2 sw reset
+[    4.194713] dwc3 28100000.dwc3: dr_mode is 2 (1-host 2-device 3-otg)
+[    4.201110] dwc3 28100000.dwc3: EP NUM:16
+[    4.205153] dwc3 28100000.dwc3: axera usb gadget init
+[    4.210221] dwc3 28100000.dwc3: configure usb2 vbusvalid
+[    4.216217] uhci_hcd: USB Universal Host Controller Interface driver
+[    4.223173] xhci-hcd xhci-hcd.0.auto: xHCI Host Controller
+[    4.228686] xhci-hcd xhci-hcd.0.auto: new USB bus registered, assigned bus number 1
+[    4.237269] xhci-hcd xhci-hcd.0.auto: hcc params 0x0220fe65 hci version 0x110 quirks 0x0000002000010010
+[    4.246723] xhci-hcd xhci-hcd.0.auto: irq 77, io mem 0x30d00000
+[    4.252753] xhci-hcd xhci-hcd.0.auto: xHCI Host Controller
+[    4.258257] xhci-hcd xhci-hcd.0.auto: new USB bus registered, assigned bus number 2
+[    4.265942] xhci-hcd xhci-hcd.0.auto: Host supports USB 3.0 SuperSpeed
+[    4.272571] usb usb1: New USB device found, idVendor=1d6b, idProduct=0002, bcdDevice= 5.15
+[    4.280864] usb usb1: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+[    4.288103] usb usb1: Product: xHCI Host Controller
+[    4.292995] usb usb1: Manufacturer: Linux 5.15.73 xhci-hcd
+[    4.298493] usb usb1: SerialNumber: xhci-hcd.0.auto
+[    4.303689] hub 1-0:1.0: USB hub found
+[    4.307464] hub 1-0:1.0: 1 port detected
+[    4.311602] usb usb2: We don't know the algorithms for LPM for this host, disabling LPM.
+[    4.318815] ata3: SATA link down (SStatus 0 SControl 300)
+[    4.319769] usb usb2: New USB device found, idVendor=1d6b, idProduct=0003, bcdDevice= 5.15
+[    4.325144] ata2: SATA link down (SStatus 0 SControl 300)
+[    4.333408] usb usb2: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+[    4.338838] ata1: SATA link down (SStatus 0 SControl 300)
+[    4.346061] usb usb2: Product: xHCI Host Controller
+[    4.351488] ata4: SATA link down (SStatus 0 SControl 300)
+[    4.356359] usb usb2: Manufacturer: Linux 5.15.73 xhci-hcd
+[    4.367273] usb usb2: SerialNumber: xhci-hcd.0.auto
+[    4.372412] hub 2-0:1.0: USB hub found
+[    4.376184] hub 2-0:1.0: 1 port detected
+[    4.380445] usbcore: registered new interface driver uas
+[    4.385807] usbcore: registered new interface driver usb-storage
+[    4.391890] usbcore: registered new interface driver usbserial_generic
+[    4.398444] usbserial: USB Serial support registered for generic
+[    4.404488] usbcore: registered new interface driver ftdi_sio
+[    4.410261] usbserial: USB Serial support registered for FTDI USB Serial Device
+[    4.418287] vhci_hcd vhci_hcd.0: USB/IP Virtual Host Controller
+[    4.424240] vhci_hcd vhci_hcd.0: new USB bus registered, assigned bus number 3
+[    4.431502] vhci_hcd: created sysfs vhci_hcd.0
+[    4.436028] usb usb3: New USB device found, idVendor=1d6b, idProduct=0002, bcdDevice= 5.15
+[    4.444321] usb usb3: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+[    4.451564] usb usb3: Product: USB/IP Virtual Host Controller
+[    4.457323] usb usb3: Manufacturer: Linux 5.15.73 vhci_hcd
+[    4.462825] usb usb3: SerialNumber: vhci_hcd.0
+[    4.467540] hub 3-0:1.0: USB hub found
+[    4.471321] hub 3-0:1.0: 8 ports detected
+[    4.475733] vhci_hcd vhci_hcd.0: USB/IP Virtual Host Controller
+[    4.481678] vhci_hcd vhci_hcd.0: new USB bus registered, assigned bus number 4
+[    4.488963] usb usb4: We don't know the algorithms for LPM for this host, disabling LPM.
+[    4.497121] usb usb4: New USB device found, idVendor=1d6b, idProduct=0003, bcdDevice= 5.15
+[    4.505413] usb usb4: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+[    4.512656] usb usb4: Product: USB/IP Virtual Host Controller
+[    4.518415] usb usb4: Manufacturer: Linux 5.15.73 vhci_hcd
+[    4.523916] usb usb4: SerialNumber: vhci_hcd.0
+[    4.528596] hub 4-0:1.0: USB hub found
+[    4.532380] hub 4-0:1.0: 8 ports detected
+[    4.536951] usbcore: registered new device driver usbip-host
+[    4.543266] rtc_axera 285fd000.rtc-top: registered as rtc0
+[    4.548793] rtc_axera 285fd000.rtc-top: setting system clock to 2026-11-11T13:02:18 UTC (1794402138)
+[    4.558036] input: pwr_key as /devices/platform/soc/285fd000.rtc-top/input/input0
+[    4.565839] i2c_dev: i2c /dev entries driver
+[    4.570200] usbcore: registered new interface driver uvcvideo
+[    4.589469] ax_wdt:ax_wdt_drv_probe:428: /soc/watchdog@4e05000 done!
+[    4.589671] ax_wdt:ax_wdt_drv_probe:428: /soc/watchdog@4e0e000 done!
+[    4.596670] sdhci: Secure Digital Host Controller Interface driver
+[    4.609249] sdhci: Copyright(c) Pierre Ossman
+[    4.613614] sdhci-pltfm: SDHCI platform and OF driver helper
+[    4.669383] mmc0: SDHCI controller on 28000000.sdhc [28000000.sdhc] using ADMA 64-bit
+[    4.699157] mmc0: Got command interrupt 0x00000001 even though no command operation was in progress.
+[    4.708316] mmc0: sdhci: ============ SDHCI REGISTER DUMP ===========
+[    4.714771] mmc0: sdhci: Sys addr:  0x00000000 | Version:  0x00000005
+[    4.721225] mmc0: sdhci: Blk size:  0x00000000 | Blk cnt:  0x00000000
+[    4.727680] mmc0: sdhci: Argument:  0x00000000 | Trn mode: 0x00000000
+[    4.728821] mmc1: SDHCI controller on 30e00000.sdhc [30e00000.sdhc] using ADMA 64-bit
+[    4.734134] mmc0: sdhci: Present:   0x03f700f0 | Host ctl: 0x00000000
+[    4.742352] hid: raw HID events driver (C) Jiri Kosina
+[    4.748431] mmc0: sdhci: Power:     0x0000000f | Blk gap:  0x00000000
+[    4.754348] usbcore: registered new interface driver usbhid
+[    4.760030] mmc0: sdhci: Wake-up:   0x00000000 | Clock:    0x00000007
+[    4.760033] mmc0: sdhci: Timeout:   0x00000000 | Int stat: 0x00000000
+[    4.760036] mmc0: sdhci: Int enab:  0x00ff1003 | Sig enab: 0x00ff1003
+[    4.765619] usbhid: USB HID core driver
+[    4.772070] mmc0: sdhci: ACmd stat: 0x00000000 | Slot int: 0x00000000
+[    4.772074] mmc0: sdhci: Caps:      0x3f6ec898 | Caps_1:   0x0800a177
+[    4.780472] optee: probing for conduit method.
+[    4.784978] mmc0: sdhci: Cmd:       0x00000502 | Max curr: 0x00000000
+[    4.788850] optee: revision 3.21 (fc05c27d)
+[    4.795271] mmc0: sdhci: Resp[0]:   0x00000000 | Resp[1]:  0x00000000
+[    4.802010] optee: initialized driver
+[    4.806174] mmc0: sdhci: Resp[2]:   0x00000000 | Resp[3]:  0x00000000
+[    4.814017] usbcore: registered new interface driver snd-usb-audio
+[    4.816816] mmc0: sdhci: Host ctl2: 0x00000000
+[    4.823540] es7243l_modinit enter
+[    4.826936] mmc0: sdhci: ADMA Err:  0x00000000 | ADMA Ptr: 0x0000000000000000
+[    4.833951] dw_i2s_probe enter, pdata = 0x0000000000000000
+[    4.839580] mmc0: sdhci: ============================================
+[    4.839979] mmc0: Got command interrupt 0x00000001 even though no command operation was in progress.
+[    4.844058] dev->intr_type = 0
+[    4.847359] mmc0: sdhci: ============ SDHCI REGISTER DUMP ===========
+[    4.854516] dw_i2s_probe, hdmi_i2s: 0
+[    4.860002] mmc0: sdhci: Sys addr:  0x00000000 | Version:  0x00000005
+[    4.860005] mmc0: sdhci: Blk size:  0x00000000 | Blk cnt:  0x00000000
+[    4.866525] config pin_sd_misc to 0x0
+[    4.875606] mmc0: sdhci: Argument:  0x00000000 | Trn mode: 0x00000000
+[    4.875609] mmc0: sdhci: Present:   0x03f700f0 | Host ctl: 0x00000000
+[    4.875612] mmc0: sdhci: Power:     0x0000000f | Blk gap:  0x00000000
+[    4.878677] config pin_g3_misc to 0x0
+[    4.885122] mmc0: sdhci: Wake-up:   0x00000000 | Clock:    0x00000007
+[    4.885125] mmc0: sdhci: Timeout:   0x00000000 | Int stat: 0x00000000
+[    4.888807] designware-i2s 2033000.i2s_mst: IRQ index 0 not found
+[    4.895244] mmc0: sdhci: Int enab:  0x00ff1003 | Sig enab: 0x00ff1003
+[    4.901699] dw_i2s_probe get irq is -6
+[    4.905363] mmc0: sdhci: ACmd stat: 0x00000000 | Slot int: 0x00000000
+[    4.911830] IIS get i2s_mclk: 12000000
+[    4.918266] mmc0: sdhci: Caps:      0x3f6ec898 | Caps_1:   0x0800a177
+[    4.925914] IIS get i2s_mclk: 12288000
+[    4.928384] mmc0: sdhci: Cmd:       0x00000502 | Max curr: 0x00000000
+[    4.934900] designware-i2s 2033000.i2s_mst: could not register pcm: -517
+[    4.941287] mmc0: sdhci: Resp[0]:   0x00000000 | Resp[1]:  0x00000000
+[    4.941291] mmc0: sdhci: Resp[2]:   0x00000000 | Resp[3]:  0x00000000
+[    4.941294] mmc0: sdhci: Host ctl2: 0x00000000
+[    4.947444] dw_i2s_probe enter, pdata = 0x0000000000000000
+[    4.953849] mmc0: sdhci: ADMA Err:  0x00000000 | ADMA Ptr: 0x0000000000000000
+[    4.953853] mmc0: sdhci: ============================================
+[    4.954243] mmc0: Got command interrupt 0x00000001 even though no command operation was in progress.
+[    4.957685] dev->intr_type = 0
+[    4.964061] mmc0: sdhci: ============ SDHCI REGISTER DUMP ===========
+[    4.964064] mmc0: sdhci: Sys addr:  0x00000000 | Version:  0x00000005
+[    4.964067] mmc0: sdhci: Blk size:  0x00000000 | Blk cnt:  0x00000000
+[    4.964070] mmc0: sdhci: Argument:  0x00000000 | Trn mode: 0x00000000
+[    4.964073] mmc0: sdhci: Present:   0x03f700f0 | Host ctl: 0x00000000
+[    4.964076] mmc0: sdhci: Power:     0x0000000f | Blk gap:  0x00000000
+[    4.967841] dw_i2s_probe, hdmi_i2s: 1
+[    4.974283] mmc0: sdhci: Wake-up:   0x00000000 | Clock:    0x00000007
+[    4.974287] mmc0: sdhci: Timeout:   0x00000000 | Int stat: 0x00000000
+[    4.978121] dw_i2s_probe get irq is 49
+[    4.984493] mmc0: sdhci: Int enab:  0x00ff1003 | Sig enab: 0x00ff1003
+[    4.984496] mmc0: sdhci: ACmd stat: 0x00000000 | Slot int: 0x00000000
+[    4.984499] mmc0: sdhci: Caps:      0x3f6ec898 | Caps_1:   0x0800a177
+[    4.991219] i2s_mclk not configured
+[    4.997663] mmc0: sdhci: Cmd:       0x00000502 | Max curr: 0x00000000
+[    5.004133] IIS probe OK
+[    5.008566] mmc0: sdhci: Resp[0]:   0x00000000 | Resp[1]:  0x00000000
+[    5.014119] dw_i2s_probe enter, pdata = 0x0000000000000000
+[    5.021208] mmc0: sdhci: Resp[2]:   0x00000000 | Resp[3]:  0x00000000
+[    5.021211] mmc0: sdhci: Host ctl2: 0x00000000
+[    5.021214] mmc0: sdhci: ADMA Err:  0x00000000 | ADMA Ptr: 0x0000000000000000
+[    5.027668] dev->intr_type = 0
+[    5.036815] mmc0: sdhci: ============================================
+[    5.037196] mmc0: Got command interrupt 0x00000001 even though no command operation was in progress.
+[    5.039887] dw_i2s_probe, hdmi_i2s: 1
+[    5.046328] mmc0: sdhci: ============ SDHCI REGISTER DUMP ===========
+[    5.052904] dw_i2s_probe get irq is 50
+[    5.059231] mmc0: sdhci: Sys addr:  0x00000000 | Version:  0x00000005
+[    5.059235] mmc0: sdhci: Blk size:  0x00000000 | Blk cnt:  0x00000000
+[    5.059238] mmc0: sdhci: Argument:  0x00000000 | Trn mode: 0x00000000
+[    5.059241] mmc0: sdhci: Present:   0x03f700f0 | Host ctl: 0x00000000
+[    5.065705] i2s_mclk not configured
+[    5.072144] mmc0: sdhci: Power:     0x0000000f | Blk gap:  0x00000000
+[    5.072147] mmc0: sdhci: Wake-up:   0x00000000 | Clock:    0x00000007
+[    5.078616] IIS probe OK
+[    5.082267] mmc0: sdhci: Timeout:   0x00000000 | Int stat: 0x00000000
+[    5.082270] mmc0: sdhci: Int enab:  0x00ff1003 | Sig enab: 0x00ff1003
+[    5.089554] IPVS: Registered protocols ()
+[    5.095175] mmc0: sdhci: ACmd stat: 0x00000000 | Slot int: 0x00000000
+[    5.099042] IPVS: Connection hash table configured (size=4096, memory=32Kbytes)
+[    5.105383] mmc0: sdhci: Caps:      0x3f6ec898 | Caps_1:   0x0800a177
+[    5.111943] IPVS: ipvs loaded.
+[    5.118288] mmc0: sdhci: Cmd:       0x00000502 | Max curr: 0x00000000
+[    5.122087] NET: Registered PF_INET6 protocol family
+[    5.128234] mmc0: sdhci: Resp[0]:   0x00000000 | Resp[1]:  0x00000000
+[    5.131324] Segment Routing with IPv6
+[    5.137222] mmc0: sdhci: Resp[2]:   0x00000000 | Resp[3]:  0x00000000
+[    5.142748] In-situ OAM (IOAM) with IPv6
+[    5.149170] mmc0: sdhci: Host ctl2: 0x00000000
+[    5.149173] mmc0: sdhci: ADMA Err:  0x00000000 | ADMA Ptr: 0x0000000000000000
+[    5.149176] mmc0: sdhci: ============================================
+[    5.153682] sit: IPv6, IPv4 and MPLS over IPv4 tunneling driver
+[    5.268927] mmc0: new HS400 Enhanced strobe MMC card at address 0001
+[    5.275592] NET: Registered PF_PACKET protocol family
+[    5.275603] mmc1: Got command interrupt 0x00000001 even though no command operation was in progress.
+[    5.275608] mmc1: sdhci: ============ SDHCI REGISTER DUMP ===========
+[    5.275610] mmc1: sdhci: Sys addr:  0x00000000 | Version:  0x00000005
+[    5.275614] mmc1: sdhci: Blk size:  0x00000000 | Blk cnt:  0x00000000
+[    5.275617] mmc1: sdhci: Argument:  0x00000000 | Trn mode: 0x00000000
+[    5.275620] mmc1: sdhci: Present:   0x03ff0000 | Host ctl: 0x00000000
+[    5.275623] mmc1: sdhci: Power:     0x0000000f | Blk gap:  0x00000000
+[    5.275626] mmc1: sdhci: Wake-up:   0x00000000 | Clock:    0x00000007
+[    5.275629] mmc1: sdhci: Timeout:   0x00000000 | Int stat: 0x00000000
+[    5.275632] mmc1: sdhci: Int enab:  0x00ff1083 | Sig enab: 0x00ff1083
+[    5.275635] mmc1: sdhci: ACmd stat: 0x00000000 | Slot int: 0x00000000
+[    5.275638] mmc1: sdhci: Caps:      0x3f6ac898 | Caps_1:   0x0800a177
+[    5.275641] mmc1: sdhci: Cmd:       0x00000502 | Max curr: 0x00000000
+[    5.275644] mmc1: sdhci: Resp[0]:   0x00000000 | Resp[1]:  0x00000000
+[    5.275647] mmc1: sdhci: Resp[2]:   0x00000000 | Resp[3]:  0x00000000
+[    5.275650] mmc1: sdhci: Host ctl2: 0x00000000
+[    5.275652] mmc1: sdhci: ADMA Err:  0x00000000 | ADMA Ptr: 0x0000000000000000
+[    5.275655] mmc1: sdhci: ============================================
+[    5.276013] mmc1: Got command interrupt 0x00000001 even though no command operation was in progress.
+[    5.276017] mmc1: sdhci: ============ SDHCI REGISTER DUMP ===========
+[    5.276019] mmc1: sdhci: Sys addr:  0x00000000 | Version:  0x00000005
+[    5.276022] mmc1: sdhci: Blk size:  0x00000000 | Blk cnt:  0x00000000
+[    5.276025] mmc1: sdhci: Argument:  0x00000000 | Trn mode: 0x00000000
+[    5.276028] mmc1: sdhci: Present:   0x03ff0000 | Host ctl: 0x00000000
+[    5.276031] mmc1: sdhci: Power:     0x0000000f | Blk gap:  0x00000000
+[    5.276034] mmc1: sdhci: Wake-up:   0x00000000 | Clock:    0x00000007
+[    5.276036] mmc1: sdhci: Timeout:   0x00000000 | Int stat: 0x00000000
+[    5.276039] mmc1: sdhci: Int enab:  0x00ff1083 | Sig enab: 0x00ff1083
+[    5.276042] mmc1: sdhci: ACmd stat: 0x00000000 | Slot int: 0x00000000
+[    5.276045] mmc1: sdhci: Caps:      0x3f6ac898 | Caps_1:   0x0800a177
+[    5.276048] mmc1: sdhci: Cmd:       0x00000502 | Max curr: 0x00000000
+[    5.276051] mmc1: sdhci: Resp[0]:   0x00000000 | Resp[1]:  0x00000000
+[    5.276054] mmc1: sdhci: Resp[2]:   0x00000000 | Resp[3]:  0x00000000
+[    5.276057] mmc1: sdhci: Host ctl2: 0x00000000
+[    5.276060] mmc1: sdhci: ADMA Err:  0x00000000 | ADMA Ptr: 0x0000000000000000
+[    5.276062] mmc1: sdhci: ============================================
+[    5.276417] mmc1: Got command interrupt 0x00000001 even though no command operation was in progress.
+[    5.276421] mmc1: sdhci: ============ SDHCI REGISTER DUMP ===========
+[    5.276423] mmc1: sdhci: Sys addr:  0x00000000 | Version:  0x00000005
+[    5.276426] mmc1: sdhci: Blk size:  0x00000000 | Blk cnt:  0x00000000
+[    5.276429] mmc1: sdhci: Argument:  0x00000000 | Trn mode: 0x00000000
+[    5.276432] mmc1: sdhci: Present:   0x03ff0000 | Host ctl: 0x00000000
+[    5.276435] mmc1: sdhci: Power:     0x0000000f | Blk gap:  0x00000000
+[    5.276438] mmc1: sdhci: Wake-up:   0x00000000 | Clock:    0x00000007
+[    5.276440] mmc1: sdhci: Timeout:   0x00000000 | Int stat: 0x00000000
+[    5.276443] mmc1: sdhci: Int enab:  0x00ff1083 | Sig enab: 0x00ff1083
+[    5.276446] mmc1: sdhci: ACmd stat: 0x00000000 | Slot int: 0x00000000
+[    5.276449] mmc1: sdhci: Caps:      0x3f6ac898 | Caps_1:   0x0800a177
+[    5.276452] mmc1: sdhci: Cmd:       0x00000502 | Max curr: 0x00000000
+[    5.276455] mmc1: sdhci: Resp[0]:   0x00000000 | Resp[1]:  0x00000000
+[    5.276458] mmc1: sdhci: Resp[2]:   0x00000000 | Resp[3]:  0x00000000
+[    5.276461] mmc1: sdhci: Host ctl2: 0x00000000
+[    5.276463] mmc1: sdhci: ADMA Err:  0x00000000 | ADMA Ptr: 0x0000000000000000
+[    5.276466] mmc1: sdhci: ============================================
+[    5.276820] mmc1: Got command interrupt 0x00000001 even though no command operation was in progress.
+[    5.276823] mmc1: sdhci: ============ SDHCI REGISTER DUMP ===========
+[    5.276825] mmc1: sdhci: Sys addr:  0x00000000 | Version:  0x00000005
+[    5.276828] mmc1: sdhci: Blk size:  0x00000000 | Blk cnt:  0x00000000
+[    5.276831] mmc1: sdhci: Argument:  0x00000000 | Trn mode: 0x00000000
+[    5.276834] mmc1: sdhci: Present:   0x03ff0000 | Host ctl: 0x00000000
+[    5.276836] mmc1: sdhci: Power:     0x0000000f | Blk gap:  0x00000000
+[    5.276839] mmc1: sdhci: Wake-up:   0x00000000 | Clock:    0x00000007
+[    5.276842] mmc1: sdhci: Timeout:   0x00000000 | Int stat: 0x00000000
+[    5.276845] mmc1: sdhci: Int enab:  0x00ff1083 | Sig enab: 0x00ff1083
+[    5.276848] mmc1: sdhci: ACmd stat: 0x00000000 | Slot int: 0x00000000
+[    5.276851] mmc1: sdhci: Caps:      0x3f6ac898 | Caps_1:   0x0800a177
+[    5.276854] mmc1: sdhci: Cmd:       0x00000502 | Max curr: 0x00000000
+[    5.276857] mmc1: sdhci: Resp[0]:   0x00000000 | Resp[1]:  0x00000000
+[    5.276860] mmc1: sdhci: Resp[2]:   0x00000000 | Resp[3]:  0x00000000
+[    5.276863] mmc1: sdhci: Host ctl2: 0x00000000
+[    5.276865] mmc1: sdhci: ADMA Err:  0x00000000 | ADMA Ptr: 0x0000000000000000
+[    5.276868] mmc1: sdhci: ============================================
+[    5.277225] mmc1: Got command interrupt 0x00000001 even though no command operation was in progress.
+[    5.277228] mmc1: sdhci: ============ SDHCI REGISTER DUMP ===========
+[    5.277230] mmc1: sdhci: Sys addr:  0x00000000 | Version:  0x00000005
+[    5.277233] mmc1: sdhci: Blk size:  0x00000000 | Blk cnt:  0x00000000
+[    5.277236] mmc1: sdhci: Argument:  0x00000000 | Trn mode: 0x00000000
+[    5.277239] mmc1: sdhci: Present:   0x03ff0000 | Host ctl: 0x00000000
+[    5.277242] mmc1: sdhci: Power:     0x0000000f | Blk gap:  0x00000000
+[    5.277245] mmc1: sdhci: Wake-up:   0x00000000 | Clock:    0x00000007
+[    5.277247] mmc1: sdhci: Timeout:   0x00000000 | Int stat: 0x00000000
+[    5.277250] mmc1: sdhci: Int enab:  0x00ff1083 | Sig enab: 0x00ff1083
+[    5.277253] mmc1: sdhci: ACmd stat: 0x00000000 | Slot int: 0x00000000
+[    5.277256] mmc1: sdhci: Caps:      0x3f6ac898 | Caps_1:   0x0800a177
+[    5.277259] mmc1: sdhci: Cmd:       0x0000371a | Max curr: 0x00000000
+[    5.277262] mmc1: sdhci: Resp[0]:   0x00000000 | Resp[1]:  0x00000000
+[    5.277265] mmc1: sdhci: Resp[2]:   0x00000000 | Resp[3]:  0x00000000
+[    5.277268] mmc1: sdhci: Host ctl2: 0x00000000
+[    5.277270] mmc1: sdhci: ADMA Err:  0x00000000 | ADMA Ptr: 0x0000000000000000
+[    5.277273] mmc1: sdhci: ============================================
+[    5.277627] mmc1: Got command interrupt 0x00000001 even though no command operation was in progress.
+[    5.277631] mmc1: sdhci: ============ SDHCI REGISTER DUMP ===========
+[    5.277633] mmc1: sdhci: Sys addr:  0x00000000 | Version:  0x00000005
+[    5.277636] mmc1: sdhci: Blk size:  0x00000000 | Blk cnt:  0x00000000
+[    5.277638] mmc1: sdhci: Argument:  0x00000000 | Trn mode: 0x00000000
+[    5.277641] mmc1: sdhci: Present:   0x03ff0000 | Host ctl: 0x00000000
+[    5.277644] mmc1: sdhci: Power:     0x0000000f | Blk gap:  0x00000000
+[    5.277647] mmc1: sdhci: Wake-up:   0x00000000 | Clock:    0x00000007
+[    5.277650] mmc1: sdhci: Timeout:   0x00000000 | Int stat: 0x00000000
+[    5.277653] mmc1: sdhci: Int enab:  0x00ff1083 | Sig enab: 0x00ff1083
+[    5.277656] mmc1: sdhci: ACmd stat: 0x00000000 | Slot int: 0x00000000
+[    5.277659] mmc1: sdhci: Caps:      0x3f6ac898 | Caps_1:   0x0800a177
+[    5.277662] mmc1: sdhci: Cmd:       0x0000371a | Max curr: 0x00000000
+[    5.277665] mmc1: sdhci: Resp[0]:   0x00000000 | Resp[1]:  0x00000000
+[    5.277668] mmc1: sdhci: Resp[2]:   0x00000000 | Resp[3]:  0x00000000
+[    5.277670] mmc1: sdhci: Host ctl2: 0x00000000
+[    5.277673] mmc1: sdhci: ADMA Err:  0x00000000 | ADMA Ptr: 0x0000000000000000
+[    5.277676] mmc1: sdhci: ============================================
+[    5.278030] mmc1: Got command interrupt 0x00000001 even though no command operation was in progress.
+[    5.278033] mmc1: sdhci: ============ SDHCI REGISTER DUMP ===========
+[    5.278035] mmc1: sdhci: Sys addr:  0x00000000 | Version:  0x00000005
+[    5.278038] mmc1: sdhci: Blk size:  0x00000000 | Blk cnt:  0x00000000
+[    5.278041] mmc1: sdhci: Argument:  0x00000000 | Trn mode: 0x00000000
+[    5.278044] mmc1: sdhci: Present:   0x03ff0000 | Host ctl: 0x00000000
+[    5.278047] mmc1: sdhci: Power:     0x0000000f | Blk gap:  0x00000000
+[    5.278049] mmc1: sdhci: Wake-up:   0x00000000 | Clock:    0x00000007
+[    5.278052] mmc1: sdhci: Timeout:   0x00000000 | Int stat: 0x00000000
+[    5.278055] mmc1: sdhci: Int enab:  0x00ff1083 | Sig enab: 0x00ff1083
+[    5.278058] mmc1: sdhci: ACmd stat: 0x00000000 | Slot int: 0x00000000
+[    5.278061] mmc1: sdhci: Caps:      0x3f6ac898 | Caps_1:   0x0800a177
+[    5.278064] mmc1: sdhci: Cmd:       0x0000371a | Max curr: 0x00000000
+[    5.278067] mmc1: sdhci: Resp[0]:   0x00000000 | Resp[1]:  0x00000000
+[    5.278070] mmc1: sdhci: Resp[2]:   0x00000000 | Resp[3]:  0x00000000
+[    5.278073] mmc1: sdhci: Host ctl2: 0x00000000
+[    5.278075] mmc1: sdhci: ADMA Err:  0x00000000 | ADMA Ptr: 0x0000000000000000
+[    5.278078] mmc1: sdhci: ============================================
+[    5.278626] mmcblk0: mmc0:0001 8GTF4R 7.28 GiB 
+[    5.284854] Bridge firewalling registered
+[    5.290537]  mmcblk0: p1(uboot) p2(uboot_bk) p3(env) p4(param) p5(logo) p6(dtb) p7(kernel) p8(atf) p9(optee) p10(recovery_dtb) p11(recovery) p12(rootfs) p13(soc) p14(opt)
+[    5.296405] NET: Registered PF_KCM protocol family
+[    5.300962] mmcblk0boot0: mmc0:0001 8GTF4R 4.00 MiB 
+[    5.306460] Key type dns_resolver registered
+[    5.311140] mmcblk0boot1: mmc0:0001 8GTF4R 4.00 MiB 
+[    5.314981] registered taskstats version 1
+[    5.322665] mmcblk0rpmb: mmc0:0001 8GTF4R 512 KiB, chardev (243:0)
+[    5.328343] Loading compiled-in X.509 certificates
+[    5.498804] 30e00000.sdhc not find suitable clock div
+[    6.231504] 30e00000.sdhc not find suitable clock div
+[    6.237494] pstore: Using crash dump compression: deflate
+[    6.264152] ax_hwspinlock 4510000.ax_hwspinlock: hwspinlock done 
+[    6.270811] axera_dma 120000.dw_dmac: DesignWare AXI DMA Controller, 8 channels
+[    6.279413] axera_dmaxor 30830000.ax_dmaxor: Axera AXI DMAXOR Controller, 32 channels
+[    6.287649] dmadim:ax_dmadim_probe:1658: done
+[    6.295438] axera-pwm 2010000.pwm0: Driver needs updating to atomic API
+[    6.302261] axera-pwm 2011000.pwm1: Driver needs updating to atomic API
+[    6.309071] axera-pwm 2012000.pwm2: Driver needs updating to atomic API
+[    6.315867] axera-pwm 2013000.pwm3: Driver needs updating to atomic API
+[    6.322598] axera pcie1 rc probe
+[    6.323745] axera-pcie 60000000.pcie: host bridge /soc/pcie@0x60000000 ranges:
+[    6.334238] axera-pcie 60000000.pcie: Parsing ranges property...
+[    6.340275] axera-pcie 60000000.pcie:       IO 0x0068800000..0x006887ffff -> 0x0068800000
+[    6.348481] axera-pcie 60000000.pcie:      MEM 0x0070000000..0x007fffffff -> 0x0070000000
+[    6.356763] axera-pcie 60000000.pcie: iATU unroll: enabled
+[    6.362268] axera-pcie 60000000.pcie: Detected iATU regions: 8 outbound, 8 inbound
+[    7.368805] axera-pcie 60000000.pcie: Phy link never came up
+[    7.374550] axera-pcie 60000000.pcie: PCI host bridge to bus 0001:80
+[    7.380930] pci_bus 0001:80: root bus resource [bus 80-ff]
+[    7.386432] pci_bus 0001:80: root bus resource [io  0x0000-0x7ffff] (bus address [0x68800000-0x6887ffff])
+[    7.396025] pci_bus 0001:80: root bus resource [mem 0x70000000-0x7fffffff]
+[    7.402921] pci_bus 0001:80: scanning bus
+[    7.406990] pci 0001:80:00.0: [16c3:abcd] type 01 class 0x060400
+[    7.413035] pci 0001:80:00.0: reg 0x10: [mem 0x00000000-0x000fffff]
+[    7.419441] pci 0001:80:00.0: supports D1
+[    7.423461] pci 0001:80:00.0: PME# supported from D0 D1 D3hot
+[    7.429228] pci 0001:80:00.0: PME# disabled
+[    7.447804] pci_bus 0001:80: fixups for bus
+[    7.452033] pci 0001:80:00.0: scanning [bus 01-ff] behind bridge, pass 0
+[    7.458754] pci 0001:80:00.0: Primary bus is hard wired to 0
+[    7.464432] pci 0001:80:00.0: bridge configuration invalid ([bus 01-ff]), reconfiguring
+[    7.472470] pci 0001:80:00.0: scanning [bus 00-00] behind bridge, pass 1
+[    7.479312] pci_bus 0001:81: scanning bus
+[    7.497505] pci_bus 0001:81: fixups for bus
+[    7.501725] pci_bus 0001:81: bus scan returning with max=81
+[    7.507316] pci_bus 0001:81: busn_res: [bus 81-ff] end is updated to 81
+[    7.513961] pci_bus 0001:80: bus scan returning with max=81
+[    7.519567] pci 0001:80:00.0: BAR 0: assigned [mem 0x70000000-0x700fffff]
+[    7.526381] pci 0001:80:00.0: PCI bridge to [bus 81]
+[    7.531469] pcieport 0001:80:00.0: assign IRQ: got 2
+[    7.536544] axera-pcie 60000000.pcie: msi#0 address_hi 0x0 address_lo 0x4800000
+[    7.544013] pcieport 0001:80:00.0: PME: Signaling with IRQ 85
+[    7.549998] pcieport 0001:80:00.0: AER: enabled with IRQ 85
+[    7.555609] pcieport 0001:80:00.0: saving config space at offset 0x0 (reading 0xabcd16c3)
+[    7.563817] pcieport 0001:80:00.0: saving config space at offset 0x4 (reading 0x110507)
+[    7.571845] pcieport 0001:80:00.0: saving config space at offset 0x8 (reading 0x6040001)
+[    7.579959] pcieport 0001:80:00.0: saving config space at offset 0xc (reading 0x10000)
+[    7.587895] pcieport 0001:80:00.0: saving config space at offset 0x10 (reading 0x70000000)
+[    7.596183] pcieport 0001:80:00.0: saving config space at offset 0x14 (reading 0x0)
+[    7.603862] pcieport 0001:80:00.0: saving config space at offset 0x18 (reading 0x818180)
+[    7.611981] pcieport 0001:80:00.0: saving config space at offset 0x1c (reading 0xf0)
+[    7.619748] pcieport 0001:80:00.0: saving config space at offset 0x20 (reading 0xfff0)
+[    7.627685] pcieport 0001:80:00.0: saving config space at offset 0x24 (reading 0x1fff1)
+[    7.635711] pcieport 0001:80:00.0: saving config space at offset 0x28 (reading 0x0)
+[    7.643389] pcieport 0001:80:00.0: saving config space at offset 0x2c (reading 0x0)
+[    7.651068] pcieport 0001:80:00.0: saving config space at offset 0x30 (reading 0x0)
+[    7.658743] pcieport 0001:80:00.0: saving config space at offset 0x34 (reading 0x40)
+[    7.666508] pcieport 0001:80:00.0: saving config space at offset 0x38 (reading 0x0)
+[    7.674186] pcieport 0001:80:00.0: saving config space at offset 0x3c (reading 0x20102)
+[    7.682955] dw_spi_mmio 113000.spi: DMA init failed
+[    7.688369] stmmaceth 10140000.ethernet: probe axera emac
+[    7.693812] stmmaceth 10140000.ethernet: IRQ eth_wake_irq not found
+[    7.700102] stmmaceth 10140000.ethernet: IRQ eth_lpi not found
+[    7.706519] stmmaceth 10140000.ethernet: emac bus clock: 400MHz
+[    7.712563] stmmaceth 10140000.ethernet: emac phy clock: 25MHz
+[    7.718424] stmmaceth 10140000.ethernet: PTP rate: 50MHz
+[    7.723781] stmmaceth 10140000.ethernet: reset axera emac and phy...
+[    7.735267] stmmaceth 10140000.ethernet: User ID: 0x10, Synopsys ID: 0x52
+[    7.742083] stmmaceth 10140000.ethernet: 	DWMAC4/5
+[    7.746887] stmmaceth 10140000.ethernet: DMA HW capability register supported
+[    7.754043] stmmaceth 10140000.ethernet: RX Checksum Offload Engine supported
+[    7.761198] stmmaceth 10140000.ethernet: TX Checksum insertion supported
+[    7.767914] stmmaceth 10140000.ethernet: Wake-Up On Lan supported
+[    7.774062] stmmaceth 10140000.ethernet: TSO supported
+[    7.779217] stmmaceth 10140000.ethernet: Enable RX Mitigation via HW Watchdog Timer
+[    7.786907] stmmaceth 10140000.ethernet: device MAC address 36:1a:05:fe:91:ac
+[    7.794065] stmmaceth 10140000.ethernet: Enabled L3L4 Flow TC (entries=4)
+[    7.800873] stmmaceth 10140000.ethernet: Enabled RFS Flow TC (entries=8)
+[    7.807590] stmmaceth 10140000.ethernet: TSO feature enabled
+[    7.813266] stmmaceth 10140000.ethernet: Using 40 bits DMA width
+[    7.821299] stmmaceth 30800000.ethernet: probe axera emac
+[    7.826740] stmmaceth 30800000.ethernet: IRQ eth_wake_irq not found
+[    7.833039] stmmaceth 30800000.ethernet: IRQ eth_lpi not found
+[    7.839012] stmmaceth 30800000.ethernet: emac bus clock: 500MHz
+[    7.844963] stmmaceth 30800000.ethernet: emac phy clock: 25MHz
+[    7.850828] stmmaceth 30800000.ethernet: PTP rate: 50MHz
+[    7.856181] stmmaceth 30800000.ethernet: reset axera emac and phy...
+[    7.867671] stmmaceth 30800000.ethernet: User ID: 0x10, Synopsys ID: 0x52
+[    7.874493] stmmaceth 30800000.ethernet: 	DWMAC4/5
+[    7.879303] stmmaceth 30800000.ethernet: DMA HW capability register supported
+[    7.886455] stmmaceth 30800000.ethernet: RX Checksum Offload Engine supported
+[    7.893610] stmmaceth 30800000.ethernet: TX Checksum insertion supported
+[    7.900330] stmmaceth 30800000.ethernet: Wake-Up On Lan supported
+[    7.906477] stmmaceth 30800000.ethernet: TSO supported
+[    7.911633] stmmaceth 30800000.ethernet: Enable RX Mitigation via HW Watchdog Timer
+[    7.919324] stmmaceth 30800000.ethernet: device MAC address 02:f8:7a:70:78:ff
+[    7.926478] stmmaceth 30800000.ethernet: Enabled L3L4 Flow TC (entries=4)
+[    7.933286] stmmaceth 30800000.ethernet: Enabled RFS Flow TC (entries=8)
+[    7.940006] stmmaceth 30800000.ethernet: TSO feature enabled
+[    7.945679] stmmaceth 30800000.ethernet: Using 40 bits DMA width
+[    7.979889] dw_i2s_probe enter, pdata = 0x0000000000000000
+[    7.985398] dev->intr_type = 0
+[    7.988459] dw_i2s_probe, hdmi_i2s: 0
+[    7.992201] config pin_sd_misc to 0x0
+[    7.995881] config pin_g3_misc to 0x0
+[    7.999582] designware-i2s 2033000.i2s_mst: IRQ index 0 not found
+[    8.005691] dw_i2s_probe get irq is -6
+[    8.009463] IIS get i2s_mclk: 12288000
+[    8.013225] IIS get i2s_mclk: 12288000
+[    8.017063] IIS probe OK
+[    8.020008] i2c_designware 2021000.i2c: running with gpio recovery mode! scl,sda
+[    8.027577] i2c i2c-0: using pinctrl states for GPIO recovery
+[    8.033445] begin->>>>>>>>>>es7243l_i2c_probe!
+[    8.038278] es8156_i2c_probe start
+[    8.041755] es8156_i2c_probe end
+[    8.061540] sgm7220 0-0047: typeC realted usb device name: 30c00000.dwc3
+[    8.069524] axera-pinctrl 4250200.pinctrl: invalid function GPIO2_A24 in map table
+[    8.077301] i2c_designware 2022000.i2c: running with gpio recovery mode! scl,sda
+[    8.084875] i2c i2c-1: using pinctrl states for GPIO recovery
+[    8.091133] i2c_designware 2023000.i2c: running with gpio recovery mode! scl,sda
+[    8.098662] i2c i2c-2: using pinctrl states for GPIO recovery
+[    8.105305] i2c_designware 2024000.i2c: running with gpio recovery mode! scl,sda
+[    8.112848] i2c i2c-3: using pinctrl states for GPIO recovery
+[    8.119079] i2c_designware 202a000.i2c: running with gpio recovery mode! scl,sda
+[    8.126605] i2c i2c-9: using pinctrl states for GPIO recovery
+[    8.133535] es7210_modinit enter
+[    8.136813] es8311_init enter
+[    8.139857] cfg80211: Loading compiled-in X.509 certificates for regulatory database
+[    8.148847] cfg80211: Loaded X.509 cert 'sforshee: 00b28ddf47aef9cea7'
+[    8.155453] platform regulatory.0: Direct firmware load for regulatory.db failed with error -2
+[    8.158996] [drm] drm init enter
+[    8.164098] cfg80211: failed to load regulatory.db
+[    8.169282] [drm] init mode not set
+[    8.175757] [drm] /soc/crtc@0 bind success
+[    8.179929] ax drm drv soc:drm@0: bound soc:crtc@0 (ops crtc_component_ops)
+[    8.198979] ax-dw-hdmi 10030000.hdmi: Detected HDMI TX controller v2.14a without HDCP (DWC HDMI 2.0 TX PHY)
+[    8.209076] ax-dw-hdmi 10030000.hdmi: registered DesignWare HDMI I2C bus driver
+[    8.216613] [drm] /soc/hdmi@10030000 bind success
+[    8.221357] ax drm drv soc:drm@0: bound 10030000.hdmi (ops ax_hdmi_ops)
+[    8.228001] [drm] /soc/dsi@0x10060000: burst_factor:25
+[    8.238910] dsi panel format = 0, lanes = 4, flags = 0x805
+[    8.244411] dsi num_init_seqs = 381
+[    8.247910] panel-init-seq: 39 00 04 b9 ff 83 99 39 00 10 b1 02 04 6b 8b 01
+[    8.254895] panel-init-seq: 32 33 11 11 53 01 56 73 02 02 39 00 0c b2 00 80
+[    8.261882] panel-init-seq: 80 ae 05 07 5a 11 00 10 10 39 00 2d b4 00 ff 00
+[    8.268863] panel-init-seq: ac 00 9c 00 00 08 00 00 02 00 26 02 07 09 21 03
+[    8.275839] panel-init-seq: 00 00 04 a4 88 00 ac 00 9c 00 00 08 00 00 02 00
+[    8.282824] panel-init-seq: 24 02 07 09 00 00 04 a4 12 39 05 22 d3 00 00 00
+[    8.289805] panel-init-seq: 00 00 00 00 00 32 10 05 00 05 00 00 00 00 00 00
+[    8.296781] panel-init-seq: 00 00 00 00 01 00 07 07 03 00 00 00 05 40 39 05
+[    8.303760] panel-init-seq: 21 d5 00 00 00 01 02 03 00 00 00 00 19 00 18 00
+[    8.310740] panel-init-seq: 20 21 00 18 00 00 00 00 00 00 00 00 31 31 30 30
+[    8.317717] panel-init-seq: 2f 2f 39 05 21 d6 40 40 03 02 01 00 40 40 40 40
+[    8.324695] panel-init-seq: 18 40 19 40 21 20 40 18 40 40 40 40 40 40 40 40
+[    8.331674] panel-init-seq: 31 31 30 30 2f 2f 39 00 11 d8 28 02 00 2a 28 02
+[    8.338650] panel-init-seq: c0 2a 00 00 00 00 00 00 00 00 15 00 02 bd 01 39
+[    8.345629] panel-init-seq: 00 11 d8 00 00 00 00 00 00 00 00 28 2a 00 2a 28
+[    8.352608] panel-init-seq: 02 c0 2a 15 00 02 bd 02 39 00 09 d8 28 2a 00 2a
+[    8.359589] panel-init-seq: 28 02 c0 2a 15 00 02 bd 00 39 00 03 b6 8d 8d 39
+[    8.366566] panel-init-seq: 00 37 e0 01 49 4f 45 87 8a 8f 84 88 8d 91 94 97
+[    8.373548] panel-init-seq: 9b a1 a2 a4 aa ab b0 a2 af af 59 54 5e 6d 01 49
+[    8.380529] panel-init-seq: 4f 45 87 8a 8f 84 88 8d 91 94 97 9b a1 a2 a4 aa
+[    8.387505] panel-init-seq: ab b0 a2 af af 59 54 5e 6d 15 00 02 d2 33 39 00
+[    8.394485] panel-init-seq: 03 b6 7d 7d 39 00 08 bf 40 41 50 09 1a 80 cd 15
+[    8.401463] panel-init-seq: 00 02 cc 08 15 05 02 36 00 05 00 01 35 05 00 01
+[    8.408440] panel-init-seq: 29 05 ff 01 00 05 00 01 11 05 ff 01 00
+[    8.414636] dsi num_exit_seqs = 4
+[    8.417959] panel-exit-seq: 05 00 01 00
+[    8.421845] /soc/dsi@0x10060000/panel_dsi@0: panel without regulator power
+[    8.428756] Expected bpc in {6,8} but got: 0
+[    8.433125] [drm] /soc/dsi@0x10060000 bind success
+[    8.437939] ax drm drv soc:drm@0: bound 10060000.dsi (ops ax_mipi_dsi_ops)
+[    8.445159] [drm] Initialized AXERA 1.0.0 20210624 for soc:drm@0 on minor 0
+[    8.452148] [drm] /soc/drm@0 bind success
+[    8.456375] [drm] init mode not set
+[    8.459987] [drm] /soc/crtc@1 bind success
+[    8.464101] ax drm drv soc:drm@1: bound soc:crtc@1 (ops crtc_component_ops)
+[    8.488987] ax-dw-hdmi 10040000.hdmi: Detected HDMI TX controller v2.14a without HDCP (DWC HDMI 2.0 TX PHY)
+[    8.499069] ax-dw-hdmi 10040000.hdmi: registered DesignWare HDMI I2C bus driver
+[    8.506575] [drm] /soc/hdmi@10040000 bind success
+[    8.507065] debugfs: Directory '10070000.i2s_mst' with parent 'Axera Audio' already present!
+[    8.511316] ax drm drv soc:drm@1: bound 10040000.hdmi (ops ax_hdmi_ops)
+[    8.519806] debugfs: Directory '10071000.i2s_mst' with parent 'Axera Audio' already present!
+[    8.526402] [drm] /soc/bt_dpi@0: [/soc/bt_dpi@0/port, /soc/bt_dpi@0/port/endpoint@0]
+[    8.534887] begin->>>>>>>>>>es7243l_probe!
+[    8.542629] [drm] /soc/bt_dpi@0: misc panel found
+[    8.546727] es7243l_probe(), index = 0
+[    8.551443] [drm] /soc/bt_dpi@0: select bt lower 8bit transmission
+[    8.561459] [drm] /soc/bt_dpi@0: [connector:81:AX_VIRT], [encoder:82:Virtual-1]
+[    8.568791] [drm] /soc/bt_dpi@0 bind success
+[    8.573080] ax drm drv soc:drm@1: bound soc:bt_dpi@0 (ops bt_dpi_component_ops)
+[    8.580718] [drm] Initialized AXERA 1.0.0 20210624 for soc:drm@1 on minor 1
+[    8.587698] [drm] /soc/drm@1 bind success
+[    8.591926] [drm] init mode not set
+[    8.595459] [drm] /soc/crtc@2/clk_vpll not found
+[    8.600100] [drm] /soc/crtc@2/clk_vpll_ref not found
+[    8.605080] [drm] /soc/crtc@2/pclk not found
+[    8.609418] [drm] /soc/crtc@2 bind success
+[    8.613531] ax drm drv soc:drm@2: bound soc:crtc@2 (ops crtc_component_ops)
+[    8.620520] [drm] /soc/bt_dpi@1: [/soc/bt_dpi@1/port, /soc/bt_dpi@1/port/endpoint@0]
+[    8.628360] [drm] /soc/bt_dpi@1: misc panel found
+[    8.633085] [drm] /soc/bt_dpi@1: select bt lower 8bit transmission
+[    8.639308] [drm] /soc/bt_dpi@1: [connector:73:AX_VIRT], [encoder:74:Virtual-2]
+[    8.646638] [drm] /soc/bt_dpi@1 bind success
+[    8.650926] ax drm drv soc:drm@2: bound soc:bt_dpi@1 (ops bt_dpi_component_ops)
+[    8.658473] [drm] Initialized AXERA 1.0.0 20210624 for soc:drm@2 on minor 2
+[    8.665461] [drm] /soc/drm@2 bind success
+[    8.669673] ALSA device list:
+[    8.672649]   #5: Loopback 1
+[    8.675668] ax-apb-uart 2016000.ax_uart: forbid DMA for kernel console
+[    8.788944] es8156_probe start
+[    8.800292] hdmi-audio-codec hdmi-audio-codec.4.auto: ASoC: sink widget TX overwritten
+[    8.808232] hdmi-audio-codec hdmi-audio-codec.4.auto: ASoC: source widget RX overwritten
+[    8.816356] dw_i2s_set_fmt, fmt: 0x4001
+[    8.820241] dw_i2s_set_fmt, fmt: 0x4001
+[    8.824111] Enter into es7243l_set_dai_sysclk(), freq = 12288000
+[    8.830138] Enter into es7243l_set_dai_fmt()
+[    8.835030] dw_i2s_set_fmt, fmt: 0x4001
+[    8.839316] dw_i2s_set_fmt, fmt: 0x4001
+[    8.843463] debugfs: File 'SDOUT' in directory 'dapm' already present!
+[    8.850071] es7243l_set_bias_level standby
+[    8.856071] md: Waiting for all devices to be available before autodetect
+[    8.862881] md: If you don't use raid, use raid=noautodetect
+[    8.868554] md: Autodetecting RAID arrays.
+[    8.872662] md: autorun ...
+[    8.875461] md: ... autorun DONE.
+[    9.006838] blk_update_request: I/O error, dev mmcblk0, sector 352258 op 0x0:(READ) flags 0x1000 phys_seg 1 prio class 0
+[    9.017950] blk_update_request: I/O error, dev mmcblk0, sector 352259 op 0x0:(READ) flags 0x1000 phys_seg 1 prio class 0
+[    9.028869] EXT4-fs (mmcblk0p12): unable to read superblock
+[    9.034506] VFS: Cannot open root device "mmcblk0p12" or unknown-block(179,12): error -5
+[    9.042626] Please append a correct "root=" boot option; here are the available partitions:
+[    9.051018] b300         7634944 mmcblk0 
+[    9.051023]  driver: mmcblk
+[    9.057837]   b301            1536 mmcblk0p1 
+[    9.057841] 
+[    9.063702]   b302            1536 mmcblk0p2 
+[    9.063706] 
+[    9.069565]   b303            1024 mmcblk0p3 
+[    9.069569] 
+[    9.075426]   b304           20480 mmcblk0p4 
+[    9.075429] 
+[    9.081290]   b305            6144 mmcblk0p5 
+[    9.081293] 
+[    9.087149]   b306            1024 mmcblk0p6 
+[    9.087153] 
+[    9.093012]   b307           65536 mmcblk0p7 
+[    9.093016] 
+[    9.098875]   b308            1024 mmcblk0p8 
+[    9.098879] 
+[    9.104736]   b309            1024 mmcblk0p9 
+[    9.104740] 
+[    9.110600]   b30a            1024 mmcblk0p10 
+[    9.110604] 
+[    9.116546]   b30b           75776 mmcblk0p11 
+[    9.116550] 
+[    9.122495]   b30c         4587520 mmcblk0p12 
+[    9.122499] 
+[    9.128442]   b30d          393216 mmcblk0p13 
+[    9.128445] 
+[    9.134391]   b30e         2478080 mmcblk0p14 
+[    9.134395] 
+[    9.140350] Kernel panic - not syncing: VFS: Unable to mount root fs on unknown-block(179,12)
+[    9.148895] CPU: 6 PID: 1 Comm: swapper/0 Not tainted 5.15.73 #1
+[    9.154916] Hardware name: axera,ax650x (DT)
+[    9.159194] Call trace:
+[    9.161644]  dump_backtrace+0x0/0x160
+[    9.165323]  show_stack+0x14/0x20
+[    9.168647]  dump_stack_lvl+0x64/0x7c
+[    9.172321]  dump_stack+0x14/0x2c
+[    9.175644]  panic+0x144/0x2f0
+[    9.178707]  mount_block_root+0x144/0x1d8
+[    9.182729]  mount_root+0x1c8/0x1e4
+[    9.186226]  prepare_namespace+0x124/0x160
+[    9.190334]  kernel_init_freeable+0x244/0x26c
+[    9.194702]  kernel_init+0x20/0x118
+[    9.198200]  ret_from_fork+0x10/0x20
+[    9.201787] kernel panic time: 2026-11-11 13:02:23
+[    9.306596] SMP: stopping secondary CPUs

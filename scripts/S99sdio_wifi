@@ -1,0 +1,60 @@
+#!/bin/sh
+#
+# S99sdio_wifi - 开机自动加载 ESP32-C5 (SDIO) 驱动
+#
+# 背景：esp32_sdio.ko 不会开机自动加载，导致 ifconfig 里看不到
+#       ethap0 / ethsta0、hciconfig 里看不到 hci0。
+#       本脚本等 SDIO 卡枚举完成后 insmod，使接口开机即存在。
+#
+# 注意：AP / STA 的角色由 /soc/sdio_wifi/wifi-ap.sh、wifi-sta.sh 显式启动，
+#       本脚本只负责把驱动装上，不改变无线工作模式。
+
+DIR=/soc/sdio_wifi
+KO="$DIR/esp32_sdio.ko"
+
+case "$1" in
+    start)
+        [ -r "$KO" ] || { echo "[sdio_wifi] 未找到 $KO，跳过"; exit 0; }
+
+        # 等 SDIO 卡枚举完成（最多 15 秒），避免驱动先于枚举加载
+        i=0
+        while [ $i -lt 30 ]; do
+            [ -e /sys/bus/sdio/devices/mmc1:0001:1 ] && break
+            usleep 500000 2>/dev/null || sleep 1
+            i=$((i + 1))
+        done
+
+        if [ ! -e /sys/bus/sdio/devices/mmc1:0001:1 ]; then
+            echo "[sdio_wifi] SDIO 卡未枚举，放弃加载驱动"
+            exit 0
+        fi
+
+        if lsmod | grep -q '^esp32_sdio'; then
+            echo "[sdio_wifi] 驱动已加载"
+        else
+            insmod "$KO" && echo "[sdio_wifi] 驱动已加载 ($KO)" \
+                          || echo "[sdio_wifi] insmod 失败"
+        fi
+
+        # cmdline 是 console=ttyS0,115200n8 loglevel=8，驱动开了 INFO_LOGS 后
+        # 每个包都会同步刷一条 printk 到串口，实测会把 Wi-Fi 从 45 Mbps 拖到
+        # 14 Mbps，并可能诱发 H2E 写超时 / slave stalled（README 5.10）。
+        dmesg -n 5 2>/dev/null || true
+        echo "[sdio_wifi] console loglevel 压到 5"
+        ;;
+    stop)
+        # 说明：热卸载会导致 SDHCI 半初始化状态（下次必须冷重启），
+        # 因此这里刻意不做 rmmod。
+        echo "[sdio_wifi] stop 不卸载驱动（热解绑会破坏 SDHCI 状态）"
+        ;;
+    restart|reload)
+        "$0" stop
+        "$0" start
+        ;;
+    *)
+        echo "用法: $0 {start|stop|restart}"
+        exit 1
+        ;;
+esac
+
+exit 0

@@ -1,0 +1,277 @@
+booti 0x100200000 - 0x110000000
+## Flattened Device Tree blob at 110000000
+   Booting using the fdt blob at 0x110000000
+   Loading Device Tree to 00000002fbe4a000, end 00000002fbe7ce74 ... OK
+
+Starting kernel ...
+
+[    0.000000] Booting Linux on physical CPU 0x0000000000 [0x412fd050]
+[    0.000000] Linux version 5.15.73 (jenkins@busrv01) (aarch64-none-linux-gnu-gcc (GNU Toolchain for the A-profile Architecture 9.2-2019.12 (arm-9.10)) 9.2.1 20191025, GNU ld (GNU Toolchain for the A-profile Architecture 9.2-2019.12 (arm-9.10)) 2.33.1.20191209) #1 SMP PREEMPT Tue Nov 3 16:18:05 CST 2026
+[    0.000000] Machine model: axera,ax650x
+[    0.000000] Memory limited to 2048MB
+[    0.000000] earlycon: uart8250 at MMIO32 0x0000000002016000 (options '')
+[    0.000000] printk: bootconsole [uart8250] enabled
+[    0.000000] Reserved memory: created CMA memory pool at 0x0000000178000000, size 128 MiB
+[    0.000000] OF: reserved mem: initialized node linux,cma, compatible id shared-dma-pool
+[    0.000000] Zone ranges:
+[    0.000000]   Normal   [mem 0x0000000100000000-0x000000017fffffff]
+[    0.000000] Movable zone start for each node
+[    0.000000] Early memory node ranges
+[    0.000000]   node   0: [mem 0x0000000100000000-0x0000000133ffffff]
+[    0.000000]   node   0: [mem 0x0000000134000000-0x0000000136400fff]
+[    0.000000]   node   0: [mem 0x0000000136401000-0x000000013dffffff]
+[    0.000000]   node   0: [mem 0x000000013e000000-0x000000013fffffff]
+[    0.000000]   node   0: [mem 0x0000000140000000-0x000000017fffffff]
+[    0.000000] Initmem setup node 0 [mem 0x0000000100000000-0x000000017fffffff]
+[    0.000000] psci: probing for conduit method from DT.
+[    0.000000] ------------[ cut here ]------------
+[    0.000000] kernel BUG at arch/arm64/kernel/traps.c:498!
+[    0.000000] Internal error: Oops - BUG: 0 [#1] PREEMPT SMP
+[    0.000000] Modules linked in:
+[    0.000000] CPU: 0 PID: 0 Comm: swapper Not tainted 5.15.73 #1
+[    0.000000] Hardware name: axera,ax650x (DT)
+[    0.000000] pstate: 000000c5 (nzcv daIF -PAN -UAO -TCO -DIT -SSBS BTYPE=--)
+[    0.000000] pc : do_undefinstr+0x190/0x1a8  :  ffff80000801be68
+[    0.000000] lr : do_undefinstr+0x19c/0x1a8  :  ffff80000801be74
+[    0.000000] sp : ffff800009113b00
+[    0.000000] x29: ffff800009113b00 x28: ffff800009122dc0 x27: ffff800008f32620
+[    0.000000] x26: ffff800008f5a178 x25: 0000000000000140 x24: ffff800009810cf0
+[    0.000000] x23: 00000000800000c5 x22: ffff8000080206bc x21: ffff800009113cc0
+[    0.000000] x20: 00000000d4000003 x19: ffff800009113b70 x18: ffff800009130d68
+[    0.000000] x17: 000000000000002f x16: 0000000177aa8d80 x15: 0000000000000039
+[    0.000000] x14: ffffffffffffffff x13: 0000000000000038 x12: 0101010101010101
+[    0.000000] x11: 0000000000000018 x10: 0101010101010101 x9 : ffffffffffffffff
+[    0.000000] x8 : 7f7f7f7f7f7f7f7f x7 : 0000000000000000 x6 : 0000000000000000
+[    0.000000] x5 : ffff800009113b70 x4 : 0000000000000000 x3 : ffff8000091249d0
+[    0.000000] x2 : 0000000000000000 x1 : ffff800009122dc0 x0 : 00000000800000c5
+[    0.000000] Call trace:
+[    0.000000]  do_undefinstr+0x190/0x1a8
+[    0.000000]  el1_undef+0x2c/0x48
+[    0.000000]  el1h_64_sync_handler+0x7c/0xb8
+[    0.000000]  el1h_64_sync+0x74/0x78
+[    0.000000]  __arm_smccc_smc+0xc/0x3c
+[    0.000000]  __invoke_psci_fn_smc+0x28/0x38
+[    0.000000]  psci_0_2_init+0x48/0x280
+[    0.000000]  psci_1_0_init+0x10/0x60
+[    0.000000]  psci_dt_init+0x4c/0x68
+[    0.000000]  setup_arch+0x408/0x564
+[    0.000000]  start_kernel+0x80/0x4bc
+[    0.000000]  __primary_switched+0xa0/0xa8
+[    0.000000] Code: 17ffffe8 a9425bf5 17ffffd8 a9025bf5 (d4210000) 
+[    0.000000] ---[ end trace f9d812c7fd891a95 ]---
+[    0.000000] Kernel panic - not syncing: Oops - BUG: Fatal exception
+[    0.000000] Unable to handle kernel NULL pointer dereference at virtual address 0000000000000000
+[    0.000000] Mem abort info:
+[    0.000000]   ESR = 0x96000044
+[    0.000000]   EC = 0x25: DABT (current EL), IL = 32 bits
+[    0.000000]   SET = 0, FnV = 0
+[    0.000000]   EA = 0, S1PTW = 0
+[    0.000000]   FSC = 0x04: level 0 translation fault
+[    0.000000] Data abort info:
+[    0.000000]   ISV = 0, ISS = 0x00000044
+[    0.000000]   CM = 0, WnR = 1
+[    0.000000] [0000000000000000] user address but active_mm is swapper
+VEERS
+
+U-Boot 2020.04 (Nov 03 2026 - 16:09:33 +0800), Build: jenkins-AX650-DailyBuild_ax650_trunk-5387
+
+early printf
+
+
+U-Boot 2020.04 (Nov 03 2026 - 16:09:33 +0800), Build: jenkins-AX650-DailyBuild_ax650_trunk-5387
+
+U-Boot code: 14001000 -> 14122700  BSS: -> 1414C660
+Model: AXERA AX650_emmc Board
+DRAM:  Monitor len: 0014B660
+Ram size: 80000000
+Ram top: 300000000
+TLB table from 2ffff0000 to 2ffffe000
+Reserving 1325k for U-Boot at: 2ffea4000
+Reserving 65664k for malloc() at: 2fbe84000
+Reserving 152 Bytes for Board Info at: 2fbe83f68
+Reserving 392 Bytes for Global Data at: 2fbe83de0
+Reserving 18976 Bytes for FDT at: 2fbe7f3c0
+
+RAM Configuration:
+Bank #0: 280000000 
+DRAM:  2 GiB
+New Stack Pointer is: 2fbe7f3b0
+Relocation Offset is: 2ebea3000
+Relocating to 2ffea4000, new gd at 2fbe83de0, sp at 2fbe7f3b0
+ax_adc_probe
+MMC:   enter sdhci_init
+sdhci_axera_probe all sdhci_axera_phy_init
+enter sdhci_init
+sdhci_axera_probe all sdhci_axera_phy_init
+mmc@28000000: 0, mmc@30E00000: 1
+NAND:  unknown raw ID 2fbe86b20
+uclass_get_device: Invalid bus 0 (err=-524)
+0 MiB
+Loading Environment from MMC... selecting mode MMC legacy (freq : 0 MHz)
+selecting mode MMC legacy (freq : 25 MHz)
+selecting mode MMC High Speed (52MHz) (freq : 52 MHz)
+get_part_info part: env, bootargs not found in env, will use default
+OK
+enter designware_i2c_probe
+initr_display:video fail probe
+reading splash logo image++ ...
+load logo image addr = 0x2fc000000
+ax_bootlogo_show inLogoFmt: FMT_BMP
+ax_bootlogo_show bmp info: [1920, 1080, 24, 64]
+[VO][D][ax_vo_pipe_init:375] pipe0
+[VO][D][ax_vo_pipe_init:387] timing: 148500000 1920 88 148 44 1080 4 36 5 0x2a
+[VO][I][ax650_hw_init:800] dpu0 hw init success
+[VO][E][ax_dw_hdmi_init:273] hdmi0 can not get hpd signal
+[VO][E][ax_vo_pipe_init:408] failed to init vo0 bridge0
+ax_bootlogo_show failed to show logo
+In:    serial
+Out:   serial
+Err:   serial
+Current chip type: AX650A_CHIP
+Current board type: AX650A_Demo
+Current adapter plate: ADP_RX_DPHY_8X2LANE
+boot_reason:8
+wdt0 reset
+!read reg addr: 0x2007008, data: 0x0
+write reg addr: 0x2007008, data: 0x0
+read reg addr: 0x2007004, data: 0x0
+write reg addr: 0x2007004, data: 0x40
+read reg addr: 0x2007000, data: 0x0
+write reg addr: 0x2007000, data: 0x0
+write reg addr: 0x30701010, data: 0x0
+write reg addr: 0x30701034, data: 0x1
+port[0]: g1_ampl = 0x50, g2_ampl = 0x60, g3_ampl = 0x78
+port[0]: g2_preemph = 0x10, g3_preemph = 0x1d
+port[0]: vboost = 0x4
+read reg addr: 0x30700024, data: 0x10a373
+write reg addr: 0x30702024, data: 0x1fc000
+write reg addr: 0x30701024, data: 0x140000
+read reg addr: 0x30700024, data: 0x142373
+read reg addr: 0x30700024, data: 0x142373
+write reg addr: 0x30702024, data: 0x3f80
+write reg addr: 0x30701024, data: 0x3000
+read reg addr: 0x30700024, data: 0x143073
+read reg addr: 0x30700024, data: 0x143073
+write reg addr: 0x30702024, data: 0x7f
+write reg addr: 0x30701024, data: 0x78
+read reg addr: 0x30700024, data: 0x143078
+read reg addr: 0x30700028, data: 0x5163
+write reg addr: 0x30702028, data: 0xfc0
+write reg addr: 0x30701028, data: 0x400
+read reg addr: 0x30700028, data: 0x5423
+read reg addr: 0x30700028, data: 0x5423
+write reg addr: 0x30702028, data: 0x3f
+write reg addr: 0x30701028, data: 0x1d
+read reg addr: 0x30700028, data: 0x541d
+port[1]: g1_ampl = 0x50, g2_ampl = 0x60, g3_ampl = 0x78
+port[1]: g2_preemph = 0x10, g3_preemph = 0x1d
+port[1]: vboost = 0x4
+read reg addr: 0x3070002c, data: 0x10a373
+write reg addr: 0x3070202c, data: 0x1fc000
+write reg addr: 0x3070102c, data: 0x140000
+read reg addr: 0x3070002c, data: 0x142373
+read reg addr: 0x3070002c, data: 0x142373
+write reg addr: 0x3070202c, data: 0x3f80
+write reg addr: 0x3070102c, data: 0x3000
+read reg addr: 0x3070002c, data: 0x143073
+read reg addr: 0x3070002c, data: 0x143073
+write reg addr: 0x3070202c, data: 0x7f
+write reg addr: 0x3070102c, data: 0x78
+read reg addr: 0x3070002c, data: 0x143078
+read reg addr: 0x30700030, data: 0x5163
+write reg addr: 0x30702030, data: 0xfc0
+write reg addr: 0x30701030, data: 0x400
+read reg addr: 0x30700030, data: 0x5423
+read reg addr: 0x30700030, data: 0x5423
+write reg addr: 0x30702030, data: 0x3f
+write reg addr: 0x30701030, data: 0x1d
+read reg addr: 0x30700030, data: 0x541d
+pcie_sata_mode_init: clock pipe_ref_alt_clk disable, ref_clk_en = 0, pipe_pcs0_model_sel = 0, pipe_pcs1_model_sel = 1
+write reg addr: 0x30710014, data: 0x1
+write reg addr: 0x30701018, data: 0x40000
+write reg addr: 0x3070101c, data: 0x40000
+write reg addr: 0x3070103c, data: 0x40000
+write reg addr: 0x30701040, data: 0x40000
+write reg addr: 0x30010028, data: 0x10
+sata0_spdmode=1, sata1_spdmode=1, sata2_spdmode=2, sata3_spdmode=2
+read reg addr: 0x300000a4, data: 0x40
+write reg addr: 0x300000a4, data: 0x44
+read reg addr: 0x300000a8, data: 0x40
+write reg addr: 0x300000a8, data: 0x44
+read reg addr: 0x300000ac, data: 0x40
+write reg addr: 0x300000ac, data: 0x48
+read reg addr: 0x300000b0, data: 0x40
+write reg addr: 0x300000b0, data: 0x48
+write reg addr: 0x300010a0, data: 0x0
+write reg addr: 0x300010a4, data: 0x200
+write reg addr: 0x300010a8, data: 0x200
+write reg addr: 0x300010ac, data: 0x200
+write reg addr: 0x300010b0, data: 0x200
+write reg addr: 0x30701018, data: 0x1000000
+write reg addr: 0x3070101c, data: 0x1000000
+write reg addr: 0x3070103c, data: 0x1000000
+write reg addr: 0x30701040, data: 0x1000000
+write reg addr: 0x30702018, data: 0x10
+write reg addr: 0x3070201c, data: 0x10
+write reg addr: 0x3070203c, data: 0x10
+write reg addr: 0x30702040, data: 0x10
+write reg addr: 0x30710024, data: 0xf
+write reg addr: 0x30010038, data: 0xff8
+write reg addr: 0x3001003c, data: 0xff8
+write reg addr: 0x30702018, data: 0x100000
+write reg addr: 0x3070201c, data: 0x100000
+write reg addr: 0x30710024, data: 0x3
+write reg addr: 0x3070203c, data: 0x100000
+write reg addr: 0x30702040, data: 0x100000
+write reg addr: 0x30710024, data: 0xc
+write reg addr: 0x30701020, data: 0x1
+write reg addr: 0x3000110c, data: 0xc000
+write reg addr: 0x30701044, data: 0x1
+write reg addr: 0x30001194, data: 0xc000
+read reg addr: 0x30304004, data: 0x0
+write reg addr: 0x30304004, data: 0x300
+read reg addr: 0x30304018, data: 0x0
+write reg addr: 0x30304018, data: 0xac0
+write reg addr: 0x30702018, data: 0xe
+write reg addr: 0x30701018, data: 0x8
+read reg addr: 0x30404004, data: 0x0
+write reg addr: 0x30404004, data: 0x300
+read reg addr: 0x30404018, data: 0x0
+write reg addr: 0x30404018, data: 0xac0
+write reg addr: 0x3070201c, data: 0xe
+write reg addr: 0x3070101c, data: 0x8
+model_sel = 0, pcie 0 not supported
+boot_mode->dl_channel = 0
+boot_mode->storage_sel = 0
+Invalid device tree header 
+axera memoey dump sd failed
+Invalid device tree header 
+axera memoey dump usb_storage failed
+Invalid device tree header 
+axera memoey dump emmc failed
+selecting mode MMC legacy (freq : 0 MHz)
+Card did not respond to voltage select!
+mmc_init: -95, time 27
+sd card is not present
+enter normal boot mode
+boot_info_data.mode = 7
+Net:   
+Warning: ethernet@0x10140000 (eth0) using random MAC address - 1e:d7:38:50:da:39
+eth0: ethernet@0x10140000  
+Warning: ethernet@0x30800000 (eth1) using random MAC address - ce:a5:7e:4f:21:91
+eth1: ethernet@0x30800000  
+Hit any key to stop autoboot:  0 
+enter do_axera_boot
+boot from emmc
+reading dtb image header...
+verify dtb image_header ...
+image_header verify failed
+dtb image header verify failed
+get start image fail
+axera_boot - axera boot
+
+Usage:
+axera_boot axera enter normal boot mode
+it is used for axera boot to kernel
+
+AXERA-UBOOT=>

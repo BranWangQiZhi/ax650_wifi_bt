@@ -710,3 +710,110 @@ $CC -O2 -static -o bt-hci-tool    app/bt-hci-tool.c
 ```
 
 静态链接，不依赖 BlueZ / dbus，可以直接跑在只有 busybox 的 rootfs 上。
+
+---
+
+## 9. PC ↔ 板子数据链路测试（含 BT PAN 可行性结论）
+
+### 9.1 结论：BT PAN / BNEP 在这块板子上不可用
+
+想让蓝牙变成一个 `bnep0` 网口、再用 `AF_INET` socket 收发（即"一份代码靠配置
+切换 WiFi / BT 两条链路"），本包硬件的**三层条件全不满足**：
+
+| 层 | PAN 需要 | 本板实测 | 结论 |
+|---|---|---|---|
+| 控制器 | BR/EDR（经典蓝牙）ACL 链路 | ESP32-C5 `capabilities: 0xd`、`BLE only`；`supported_settings=0x0001FE1B` 里无 BREDR 位，`current=0x201` 只有 powered+LE | ❌ |
+| 内核 | `CONFIG_BT_BNEP` + `bnep.ko` | `/proc/config.gz`：`CONFIG_BT_BNEP / RFCOMM / HIDP is not set`；全盘无 `bnep.ko` | ❌ |
+| 用户态 | BlueZ（`bluetoothd` / `pand`）建 PANU/NAP | 无 `bluetoothd` / `pand` / `hciconfig` / `bluetoothctl` | ❌ |
+
+PC 侧反倒有 PAN 网络适配器（"蓝牙网络连接" 169.254.x.x）和 Intel BR/EDR+BLE
+控制器，但**对端没有对等体**。要真做 PAN 得换带经典蓝牙的控制器（例如板子插
+USB BT dongle）+ 重编内核开 BNEP + 移植 BlueZ，属于改系统，不是"写个简单程序"。
+
+所以：**WiFi 侧 `AF_INET` 一套代码成立；BT 侧不存在可 bind 的 IP 接口**。
+BLE 能做的是广播/扫描（短数据、单向、无连接）或 GATT（需 BlueZ 或自写 ATT，
+成本中高，见 §5.2）。
+
+### 9.2 提供的测试程序
+
+| 文件 | 运行位置 | 作用 |
+|---|---|---|
+| `app/linktest.c` | 板子 / Linux PC | 一份源码两用的 `AF_INET` TCP/UDP echo server/client，统计丢包、吞吐、RTT |
+| `app/linktest.py` | PC（Python 3，免编译） | `wifi server/client` 与 `ble scan`，按子命令选链路；BLE 扫描需 `bleak` |
+| `scripts/linktest-board.sh` | 板子（busybox sh，免编译） | `status` / `wifi server\|client` / `ble beacon\|off` |
+
+```sh
+# 板子（/soc/sdio_wifi）
+sh linktest-board.sh status
+sh linktest-board.sh wifi server tcp 9000           # nc echo 服务端
+sh linktest-board.sh ble beacon HELLO 20            # 数据编码进广播名
+
+# PC
+python app/linktest.py wifi client --host 192.168.0.92 --port 9000 \
+       --bytes 1048576 --block 4096
+python app/linktest.py wifi client --host 192.168.0.92 --port 9000 \
+       --bytes 4194304 --block 65536 --stream      # 测带宽而非 RTT
+python app/linktest.py ble scan --seconds 10 --prefix LNK:
+python app/linktest.py info
+```
+
+`ble beacon` 把数据放进 BLE 广播名（前缀 `LNK:`，整名 ≤ 24 字符），PC 用
+`bleak` 扫描并解出数据。这是**单向、无确认、每包十几字节**的通道，适合传状态/
+传感器值，不适合传文件或流。
+
+C 版编译（板子无 gcc，需交叉编译；本机可用 zig 生成静态 aarch64 ELF）：
+
+```sh
+python -m pip install ziglang
+python -m ziglang cc -target aarch64-linux-musl -O2 -static -o app/linktest app/linktest.c
+python -m ziglang cc -target aarch64-linux-musl -O2 -static \
+       -o app/bt-extadv-tool app/bt-extadv-tool.c
+# 或 SDK 工具链：aarch64-none-linux-gnu-gcc -O2 -static
+```
+
+### 9.3 广播工具的一个 bug（已修）
+
+`app/bt-extadv-tool.c` 的 `adv_data_len` 原写成 `2+2+strlen(name)`，而实际 AD 是
+`flags(3B) + name(2+n)` = `5+n`。少算 1 字节导致控制器把名字最后一个字符截掉，
+name AD 的长度字段与数据不匹配：**对端能扫到 BD_ADDR 和 RSSI，但解析出的
+`local_name` 恒为空**，数据自然也读不出来。已改为 `5+n` 并限制 `n<=26`。
+
+本机没有可用的交叉编译器（SDK 工具链在 Linux 主机、Zig 源下载不完整），所以用
+`.workbuddy/patch_extadv.py` 给现成的 aarch64 静态 ELF 打了等价补丁：`adv_on`
+被 `-O2` 内联进 `main`，目标指令是 `0x400634: add w19, w0, #4`（后面
+`strb w19,[sp,#0x6b]` 写 `data[3]`、`add w3,w19,#4` 算 dlen），把 imm12 由 4
+改成 5 即可。原始二进制备份在 `.workbuddy/bt-extadv-tool.orig`，板子上备份为
+`/soc/sdio_wifi/bt-extadv-tool.bak`。**正式发布仍应以修复后的源码重新交叉编译为准**，
+二进制补丁只是无工具链环境下的应急手段。
+
+### 9.4 实测（2026-11-11，AX650 + PC）
+
+环境：板子 `ethsta0 192.168.0.92/23`（热点 1303），PC WLAN `192.168.0.4/23`，
+`hci0 = 10:BD:A3:DF:1E:52`，BT `current=0x201`（powered + LE）。
+
+WiFi（板子 `nc -lk -p 9000 -e cat` echo，PC `linktest.py wifi client`）：
+
+| 模式 | 数据量 | 结果 |
+|---|---|---|
+| 逐块确认 block=1 KiB | 256 KiB | 256/256 块回显一致，0 丢包，RTT 16.6 ms，0.49 Mbps |
+| 逐块确认 block=64 KiB | 1 MiB | 16/16 块一致，0 丢包，RTT 107 ms，4.88 Mbps |
+| 连续流 `--stream` | 4 MiB | 4 MiB 全量回显，4.84 s，6.94 Mbps |
+
+> 逐块确认的吞吐受 RTT 限制；连续流也只有 ~7 Mbps，因为板端是 `nc -e cat`
+> 用户态逐包转发（叠加串口日志开销），**不是链路上限** —— 空口基线见 §4.2
+> （iperf3 约 44 Mbps）。要测链路极限请直接跑 `iperf3 -s` / `iperf3 -c`。
+
+BLE（板子 `ble beacon HELLO-WIFI-BT 20`，PC `ble scan --seconds 12`）：
+
+```text
+10:BD:A3:DF:1E:52  rssi=-44  name='LNK:HELLO-WIFI-BT'  data='HELLO-WIFI-BT'
+```
+
+12 秒内稳定收到数十条，RSSI −43 ~ −47 dBm。修 `adv_data_len` 之前 `local_name`
+恒为空、只能看到地址。**这条是单向、无连接、每包十几字节**的通道，不能替代
+PAN 的双向 IP 通道。
+
+PC → 板子方向：Windows 桌面用 WinRT `BluetoothLEAdvertisementPublisher` 发布广播时，
+带 `LocalName` 会报 `E_INVALIDARG`，只能发 manufacturer data，而板端
+`bt-mgmt-tool` 不解析该字段，本环境未能实测该方向的数据解码。需要 PC→板子的
+可靠数据时走 WiFi（已通），或后续做 BLE GATT。

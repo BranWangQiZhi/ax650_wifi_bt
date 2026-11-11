@@ -1,0 +1,404 @@
+reset
+resetting ...
+axera_sysreset begin
+Set REG 0x420004C, value 0xC1VEERS
+
+U-Boot 2020.04 (Nov 03 2026 - 16:09:33 +0800), Build: jenkins-AX650-DailyBuild_ax650_trunk-5387
+
+early printf
+
+
+U-Boot 2020.04 (Nov 03 2026 - 16:09:33 +0800), Build: jenkins-AX650-DailyBuild_ax650_trunk-5387
+
+U-Boot code: 14001000 -> 14122700  BSS: -> 1414C660
+Model: AXERA AX650_emmc Board
+DRAM:  Monitor len: 0014B660
+Ram size: 80000000
+Ram top: 300000000
+TLB table from 2ffff0000 to 2ffffe000
+Reserving 1325k for U-Boot at: 2ffea4000
+Reserving 65664k for malloc() at: 2fbe84000
+Reserving 152 Bytes for Board Info at: 2fbe83f68
+Reserving 392 Bytes for Global Data at: 2fbe83de0
+Reserving 18976 Bytes for FDT at: 2fbe7f3c0
+
+RAM Configuration:
+Bank #0: 280000000 
+DRAM:  2 GiB
+New Stack Pointer is: 2fbe7f3b0
+Relocation Offset is: 2ebea3000
+Relocating to 2ffea4000, new gd at 2fbe83de0, sp at 2fbe7f3b0
+ax_adc_probe
+MMC:   enter sdhci_init
+sdhci_axera_probe all sdhci_axera_phy_init
+enter sdhci_init
+sdhci_axera_probe all sdhci_axera_phy_init
+mmc@28000000: 0, mmc@30E00000: 1
+NAND:  unknown raw ID 2fbe86b20
+uclass_get_device: Invalid bus 0 (err=-524)
+0 MiB
+Loading Environment from MMC... selecting mode MMC legacy (freq : 0 MHz)
+selecting mode MMC legacy (freq : 25 MHz)
+selecting mode MMC High Speed (52MHz) (freq : 52 MHz)
+get_part_info part: env, bootargs not found in env, will use default
+OK
+enter designware_i2c_probe
+initr_display:video fail probe
+reading splash logo image++ ...
+load logo image addr = 0x2fc000000
+ax_bootlogo_show inLogoFmt: FMT_BMP
+ax_bootlogo_show bmp info: [1920, 1080, 24, 64]
+[VO][D][ax_vo_pipe_init:375] pipe0
+[VO][D][ax_vo_pipe_init:387] timing: 148500000 1920 88 148 44 1080 4 36 5 0x2a
+[VO][I][ax650_hw_init:800] dpu0 hw init success
+[VO][E][ax_dw_hdmi_init:273] hdmi0 can not get hpd signal
+[VO][E][ax_vo_pipe_init:408] failed to init vo0 bridge0
+ax_bootlogo_show failed to show logo
+In:    serial
+Out:   serial
+Err:   serial
+Current chip type: AX650A_CHIP
+Current board type: AX650A_Demo
+Current adapter plate: ADP_RX_DPHY_8X2LANE
+boot_reason:1
+swrst reset
+!read reg addr: 0x2007008, data: 0x0
+write reg addr: 0x2007008, data: 0x0
+read reg addr: 0x2007004, data: 0x0
+write reg addr: 0x2007004, data: 0x40
+read reg addr: 0x2007000, data: 0x0
+write reg addr: 0x2007000, data: 0x0
+write reg addr: 0x30701010, data: 0x0
+write reg addr: 0x30701034, data: 0x1
+port[0]: g1_ampl = 0x50, g2_ampl = 0x60, g3_ampl = 0x78
+port[0]: g2_preemph = 0x10, g3_preemph = 0x1d
+port[0]: vboost = 0x4
+read reg addr: 0x30700024, data: 0x10a373
+write reg addr: 0x30702024, data: 0x1fc000
+write reg addr: 0x30701024, data: 0x140000
+read reg addr: 0x30700024, data: 0x142373
+read reg addr: 0x30700024, data: 0x142373
+write reg addr: 0x30702024, data: 0x3f80
+write reg addr: 0x30701024, data: 0x3000
+read reg addr: 0x30700024, data: 0x143073
+read reg addr: 0x30700024, data: 0x143073
+write reg addr: 0x30702024, data: 0x7f
+write reg addr: 0x30701024, data: 0x78
+read reg addr: 0x30700024, data: 0x143078
+read reg addr: 0x30700028, data: 0x5163
+write reg addr: 0x30702028, data: 0xfc0
+write reg addr: 0x30701028, data: 0x400
+read reg addr: 0x30700028, data: 0x5423
+read reg addr: 0x30700028, data: 0x5423
+write reg addr: 0x30702028, data: 0x3f
+write reg addr: 0x30701028, data: 0x1d
+read reg addr: 0x30700028, data: 0x541d
+port[1]: g1_ampl = 0x50, g2_ampl = 0x60, g3_ampl = 0x78
+port[1]: g2_preemph = 0x10, g3_preemph = 0x1d
+port[1]: vboost = 0x4
+read reg addr: 0x3070002c, data: 0x10a373
+write reg addr: 0x3070202c, data: 0x1fc000
+write reg addr: 0x3070102c, data: 0x140000
+read reg addr: 0x3070002c, data: 0x142373
+read reg addr: 0x3070002c, data: 0x142373
+write reg addr: 0x3070202c, data: 0x3f80
+write reg addr: 0x3070102c, data: 0x3000
+read reg addr: 0x3070002c, data: 0x143073
+read reg addr: 0x3070002c, data: 0x143073
+write reg addr: 0x3070202c, data: 0x7f
+write reg addr: 0x3070102c, data: 0x78
+read reg addr: 0x3070002c, data: 0x143078
+read reg addr: 0x30700030, data: 0x5163
+write reg addr: 0x30702030, data: 0xfc0
+write reg addr: 0x30701030, data: 0x400
+read reg addr: 0x30700030, data: 0x5423
+read reg addr: 0x30700030, data: 0x5423
+write reg addr: 0x30702030, data: 0x3f
+write reg addr: 0x30701030, data: 0x1d
+read reg addr: 0x30700030, data: 0x541d
+pcie_sata_mode_init: clock pipe_ref_alt_clk disable, ref_clk_en = 0, pipe_pcs0_model_sel = 0, pipe_pcs1_model_sel = 1
+write reg addr: 0x30710014, data: 0x1
+write reg addr: 0x30701018, data: 0x40000
+write reg addr: 0x3070101c, data: 0x40000
+write reg addr: 0x3070103c, data: 0x40000
+write reg addr: 0x30701040, data: 0x40000
+write reg addr: 0x30010028, data: 0x10
+sata0_spdmode=1, sata1_spdmode=1, sata2_spdmode=2, sata3_spdmode=2
+read reg addr: 0x300000a4, data: 0x40
+write reg addr: 0x300000a4, data: 0x44
+read reg addr: 0x300000a8, data: 0x40
+write reg addr: 0x300000a8, data: 0x44
+read reg addr: 0x300000ac, data: 0x40
+write reg addr: 0x300000ac, data: 0x48
+read reg addr: 0x300000b0, data: 0x40
+write reg addr: 0x300000b0, data: 0x48
+write reg addr: 0x300010a0, data: 0x0
+write reg addr: 0x300010a4, data: 0x200
+write reg addr: 0x300010a8, data: 0x200
+write reg addr: 0x300010ac, data: 0x200
+write reg addr: 0x300010b0, data: 0x200
+write reg addr: 0x30701018, data: 0x1000000
+write reg addr: 0x3070101c, data: 0x1000000
+write reg addr: 0x3070103c, data: 0x1000000
+write reg addr: 0x30701040, data: 0x1000000
+write reg addr: 0x30702018, data: 0x10
+write reg addr: 0x3070201c, data: 0x10
+write reg addr: 0x3070203c, data: 0x10
+write reg addr: 0x30702040, data: 0x10
+write reg addr: 0x30710024, data: 0xf
+write reg addr: 0x30010038, data: 0xff8
+write reg addr: 0x3001003c, data: 0xff8
+write reg addr: 0x30702018, data: 0x100000
+write reg addr: 0x3070201c, data: 0x100000
+write reg addr: 0x30710024, data: 0x3
+write reg addr: 0x3070203c, data: 0x100000
+write reg addr: 0x30702040, data: 0x100000
+write reg addr: 0x30710024, data: 0xc
+write reg addr: 0x30701020, data: 0x1
+write reg addr: 0x3000110c, data: 0xc000
+write reg addr: 0x30701044, data: 0x1
+write reg addr: 0x30001194, data: 0xc000
+read reg addr: 0x30304004, data: 0x0
+write reg addr: 0x30304004, data: 0x300
+read reg addr: 0x30304018, data: 0x0
+write reg addr: 0x30304018, data: 0xac0
+write reg addr: 0x30702018, data: 0xe
+write reg addr: 0x30701018, data: 0x8
+read reg addr: 0x30404004, data: 0x0
+write reg addr: 0x30404004, data: 0x300
+read reg addr: 0x30404018, data: 0x0
+write reg addr: 0x30404018, data: 0xac0
+write reg addr: 0x3070201c, data: 0xe
+write reg addr: 0x3070101c, data: 0x8
+model_sel = 0, pcie 0 not supported
+boot_mode->dl_channel = 0
+boot_mode->storage_sel = 0
+selecting mode MMC legacy (freq : 0 MHz)
+Card did not respond to voltage select!
+mmc_init: -95, time 27
+sd card is not present
+enter normal boot mode
+boot_info_data.mode = 7
+Net:   
+Warning: ethernet@0x10140000 (eth0) using random MAC address - aa:14:7a:bd:e2:dc
+eth0: ethernet@0x10140000  
+Warning: ethernet@0x30800000 (eth1) using random MAC address - 8a:9e:f4:32:a2:55
+eth1: ethernet@0x30800000  
+Hit any key to stop autoboot:  0 
+enter do_axera_boot
+boot from emmc
+reading dtb image header...
+verify dtb image_header ...
+image_header verify failed
+dtb image header verify failed
+get start image fail
+axera_boot - axera boot
+
+Usage:
+axera_boot axera enter normal boot mode
+it is used for axera boot to kernel
+
+AXERA-UBOOT=>VEERS
+
+U-Boot 2020.04 (Nov 03 2026 - 16:09:33 +0800), Build: jenkins-AX650-DailyBuild_ax650_trunk-5387
+
+early printf
+
+
+U-Boot 2020.04 (Nov 03 2026 - 16:09:33 +0800), Build: jenkins-AX650-DailyBuild_ax650_trunk-5387
+
+U-Boot code: 14001000 -> 14122700  BSS: -> 1414C660
+Model: AXERA AX650_emmc Board
+DRAM:  Monitor len: 0014B660
+Ram size: 80000000
+Ram top: 300000000
+TLB table from 2ffff0000 to 2ffffe000
+Reserving 1325k for U-Boot at: 2ffea4000
+Reserving 65664k for malloc() at: 2fbe84000
+Reserving 152 Bytes for Board Info at: 2fbe83f68
+Reserving 392 Bytes for Global Data at: 2fbe83de0
+Reserving 18976 Bytes for FDT at: 2fbe7f3c0
+
+RAM Configuration:
+Bank #0: 280000000 
+DRAM:  2 GiB
+New Stack Pointer is: 2fbe7f3b0
+Relocation Offset is: 2ebea3000
+Relocating to 2ffea4000, new gd at 2fbe83de0, sp at 2fbe7f3b0
+ax_adc_probe
+MMC:   enter sdhci_init
+sdhci_axera_probe all sdhci_axera_phy_init
+enter sdhci_init
+sdhci_axera_probe all sdhci_axera_phy_init
+mmc@28000000: 0, mmc@30E00000: 1
+NAND:  unknown raw ID 2fbe86b20
+uclass_get_device: Invalid bus 0 (err=-524)
+0 MiB
+Loading Environment from MMC... selecting mode MMC legacy (freq : 0 MHz)
+selecting mode MMC legacy (freq : 25 MHz)
+selecting mode MMC High Speed (52MHz) (freq : 52 MHz)
+get_part_info part: env, bootargs not found in env, will use default
+OK
+enter designware_i2c_probe
+initr_display:video fail probe
+reading splash logo image++ ...
+load logo image addr = 0x2fc000000
+ax_bootlogo_show inLogoFmt: FMT_BMP
+ax_bootlogo_show bmp info: [1920, 1080, 24, 64]
+[VO][D][ax_vo_pipe_init:375] pipe0
+[VO][D][ax_vo_pipe_init:387] timing: 148500000 1920 88 148 44 1080 4 36 5 0x2a
+[VO][I][ax650_hw_init:800] dpu0 hw init success
+[VO][E][ax_dw_hdmi_init:273] hdmi0 can not get hpd signal
+[VO][E][ax_vo_pipe_init:408] failed to init vo0 bridge0
+ax_bootlogo_show failed to show logo
+In:    serial
+Out:   serial
+Err:   serial
+Current chip type: AX650A_CHIP
+Current board type: AX650A_Demo
+Current adapter plate: ADP_RX_DPHY_8X2LANE
+boot_reason:8
+wdt0 reset
+!read reg addr: 0x2007008, data: 0x0
+write reg addr: 0x2007008, data: 0x0
+read reg addr: 0x2007004, data: 0x0
+write reg addr: 0x2007004, data: 0x40
+read reg addr: 0x2007000, data: 0x0
+write reg addr: 0x2007000, data: 0x0
+write reg addr: 0x30701010, data: 0x0
+write reg addr: 0x30701034, data: 0x1
+port[0]: g1_ampl = 0x50, g2_ampl = 0x60, g3_ampl = 0x78
+port[0]: g2_preemph = 0x10, g3_preemph = 0x1d
+port[0]: vboost = 0x4
+read reg addr: 0x30700024, data: 0x10a373
+write reg addr: 0x30702024, data: 0x1fc000
+write reg addr: 0x30701024, data: 0x140000
+read reg addr: 0x30700024, data: 0x142373
+read reg addr: 0x30700024, data: 0x142373
+write reg addr: 0x30702024, data: 0x3f80
+write reg addr: 0x30701024, data: 0x3000
+read reg addr: 0x30700024, data: 0x143073
+read reg addr: 0x30700024, data: 0x143073
+write reg addr: 0x30702024, data: 0x7f
+write reg addr: 0x30701024, data: 0x78
+read reg addr: 0x30700024, data: 0x143078
+read reg addr: 0x30700028, data: 0x5163
+write reg addr: 0x30702028, data: 0xfc0
+write reg addr: 0x30701028, data: 0x400
+read reg addr: 0x30700028, data: 0x5423
+read reg addr: 0x30700028, data: 0x5423
+write reg addr: 0x30702028, data: 0x3f
+write reg addr: 0x30701028, data: 0x1d
+read reg addr: 0x30700028, data: 0x541d
+port[1]: g1_ampl = 0x50, g2_ampl = 0x60, g3_ampl = 0x78
+port[1]: g2_preemph = 0x10, g3_preemph = 0x1d
+port[1]: vboost = 0x4
+read reg addr: 0x3070002c, data: 0x10a373
+write reg addr: 0x3070202c, data: 0x1fc000
+write reg addr: 0x3070102c, data: 0x140000
+read reg addr: 0x3070002c, data: 0x142373
+read reg addr: 0x3070002c, data: 0x142373
+write reg addr: 0x3070202c, data: 0x3f80
+write reg addr: 0x3070102c, data: 0x3000
+read reg addr: 0x3070002c, data: 0x143073
+read reg addr: 0x3070002c, data: 0x143073
+write reg addr: 0x3070202c, data: 0x7f
+write reg addr: 0x3070102c, data: 0x78
+read reg addr: 0x3070002c, data: 0x143078
+read reg addr: 0x30700030, data: 0x5163
+write reg addr: 0x30702030, data: 0xfc0
+write reg addr: 0x30701030, data: 0x400
+read reg addr: 0x30700030, data: 0x5423
+read reg addr: 0x30700030, data: 0x5423
+write reg addr: 0x30702030, data: 0x3f
+write reg addr: 0x30701030, data: 0x1d
+read reg addr: 0x30700030, data: 0x541d
+pcie_sata_mode_init: clock pipe_ref_alt_clk disable, ref_clk_en = 0, pipe_pcs0_model_sel = 0, pipe_pcs1_model_sel = 1
+write reg addr: 0x30710014, data: 0x1
+write reg addr: 0x30701018, data: 0x40000
+write reg addr: 0x3070101c, data: 0x40000
+write reg addr: 0x3070103c, data: 0x40000
+write reg addr: 0x30701040, data: 0x40000
+write reg addr: 0x30010028, data: 0x10
+sata0_spdmode=1, sata1_spdmode=1, sata2_spdmode=2, sata3_spdmode=2
+read reg addr: 0x300000a4, data: 0x40
+write reg addr: 0x300000a4, data: 0x44
+read reg addr: 0x300000a8, data: 0x40
+write reg addr: 0x300000a8, data: 0x44
+read reg addr: 0x300000ac, data: 0x40
+write reg addr: 0x300000ac, data: 0x48
+read reg addr: 0x300000b0, data: 0x40
+write reg addr: 0x300000b0, data: 0x48
+write reg addr: 0x300010a0, data: 0x0
+write reg addr: 0x300010a4, data: 0x200
+write reg addr: 0x300010a8, data: 0x200
+write reg addr: 0x300010ac, data: 0x200
+write reg addr: 0x300010b0, data: 0x200
+write reg addr: 0x30701018, data: 0x1000000
+write reg addr: 0x3070101c, data: 0x1000000
+write reg addr: 0x3070103c, data: 0x1000000
+write reg addr: 0x30701040, data: 0x1000000
+write reg addr: 0x30702018, data: 0x10
+write reg addr: 0x3070201c, data: 0x10
+write reg addr: 0x3070203c, data: 0x10
+write reg addr: 0x30702040, data: 0x10
+write reg addr: 0x30710024, data: 0xf
+write reg addr: 0x30010038, data: 0xff8
+write reg addr: 0x3001003c, data: 0xff8
+write reg addr: 0x30702018, data: 0x100000
+write reg addr: 0x3070201c, data: 0x100000
+write reg addr: 0x30710024, data: 0x3
+write reg addr: 0x3070203c, data: 0x100000
+write reg addr: 0x30702040, data: 0x100000
+write reg addr: 0x30710024, data: 0xc
+write reg addr: 0x30701020, data: 0x1
+write reg addr: 0x3000110c, data: 0xc000
+write reg addr: 0x30701044, data: 0x1
+write reg addr: 0x30001194, data: 0xc000
+read reg addr: 0x30304004, data: 0x0
+write reg addr: 0x30304004, data: 0x300
+read reg addr: 0x30304018, data: 0x0
+write reg addr: 0x30304018, data: 0xac0
+write reg addr: 0x30702018, data: 0xe
+write reg addr: 0x30701018, data: 0x8
+read reg addr: 0x30404004, data: 0x0
+write reg addr: 0x30404004, data: 0x300
+read reg addr: 0x30404018, data: 0x0
+write reg addr: 0x30404018, data: 0xac0
+write reg addr: 0x3070201c, data: 0xe
+write reg addr: 0x3070101c, data: 0x8
+model_sel = 0, pcie 0 not supported
+boot_mode->dl_channel = 0
+boot_mode->storage_sel = 0
+Invalid device tree header 
+axera memoey dump sd failed
+Invalid device tree header 
+axera memoey dump usb_storage failed
+Invalid device tree header 
+axera memoey dump emmc failed
+selecting mode MMC legacy (freq : 0 MHz)
+Card did not respond to voltage select!
+mmc_init: -95, time 27
+sd card is not present
+enter normal boot mode
+boot_info_data.mode = 7
+Net:   
+Warning: ethernet@0x10140000 (eth0) using random MAC address - a2:e6:cf:13:9e:09
+eth0: ethernet@0x10140000  
+Warning: ethernet@0x30800000 (eth1) using random MAC address - 82:53:49:a5:1c:fa
+eth1: ethernet@0x30800000  
+Hit any key to stop autoboot:  0 
+enter do_axera_boot
+boot from emmc
+reading dtb image header...
+verify dtb image_header ...
+image_header verify failed
+dtb image header verify failed
+get start image fail
+axera_boot - axera boot
+
+Usage:
+axera_boot axera enter normal boot mode
+it is used for axera boot to kernel
+
+AXERA-UBOOT=>

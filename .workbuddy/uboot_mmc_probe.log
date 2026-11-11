@@ -1,0 +1,110 @@
+[1] 触发重启
+[2] 等待掉线并拦截 U-Boot（持续发送空格）
+    已进入 U-Boot 提示符
+
+[3] 查询 MMC
+
+$ mmc list
+mmc list
+mmc@28000000: 0 (eMMC)
+mmc@30E00000: 1
+AXERA-UBOOT=>
+
+$ mmc dev 1
+mmc dev 1
+selecting mode MMC legacy (freq : 0 MHz)
+Card did not respond to voltage select!
+mmc_init: -95, time 27
+AXERA-UBOOT=>
+
+$ mmc info
+mmc info
+Device: mmc@28000000
+Manufacturer ID: 15
+OEM: 100
+Name: 8GTF4 
+Bus Speed: 52000000
+Mode: MMC High Speed (52MHz)
+Rd Block Len: 512
+MMC version 5.1
+High Capacity: Yes
+Capacity: 7.3 GiB
+Bus Width: 8-bit
+Erase Group Size: 512 KiB
+HC WP Group Size: 8 MiB
+User Capacity: 7.3 GiB WRREL
+Boot Capacity: 4 MiB ENH
+RPMB Capacity: 512 KiB ENH
+AXERA-UBOOT=>
+
+$ mmc rescan; mmc info
+mmc rescan; mmc info
+selecting mode MMC legacy (freq : 25 MHz)
+selecting mode MMC legacy (freq : 25 MHz)
+selecting mode MMC High Speed (52MHz) (freq : 52 MHz)
+Device: mmc@28000000
+Manufacturer ID: 15
+OEM: 100
+Name: 8GTF4 
+Bus Speed: 52000000
+Mode: MMC High Speed (52MHz)
+Rd Block Len: 512
+MMC version 5.1
+High Capacity: Yes
+Capacity: 7.3 GiB
+Bus Width: 8-bit
+Erase Group Size: 512 KiB
+HC WP Group Size: 8 MiB
+User Capacity: 7.3 GiB WRREL
+Boot Capacity: 4 MiB ENH
+RPMB Capacity: 512 KiB ENH
+AXERA-UBOOT=>
+
+$ mmc dev 0
+mmc dev 0
+selecting mode MMC legacy (freq : 25 MHz)
+selecting mode MMC legacy (freq : 25 MHz)
+selecting mode MMC High Speed (52MHz) (freq : 52 MHz)
+switch to partitions #0, OK
+mmc0(part 0) is current device
+AXERA-UBOOT=>
+
+$ mmc info
+mmc info
+Device: mmc@28000000
+Manufacturer ID: 15
+OEM: 100
+Name: 8GTF4 
+Bus Speed: 52000000
+Mode: MMC High Speed (52MHz)
+Rd Block Len: 512
+MMC version 5.1
+High Capacity: Yes
+Capacity: 7.3 GiB
+Bus Width: 8-bit
+Erase Group Size: 512 KiB
+HC WP Group Size: 8 MiB
+User Capacity: 7.3 GiB WRREL
+Boot Capacity: 4 MiB ENH
+RPMB Capacity: 512 KiB ENH
+AXERA-UBOOT=>
+
+[4] 恢复启动
+mem=2048M console=ttyS0,115200n8 earlycon=uart8250,mmio32,0x2016000 board_id=0x0,boot_reason=0x8,    initcall_debug=0 loglevel=8 usbcore.autosuspend=-1 ax_boot_delay=10  rootfstype=ext4 rw rootwait root=/dev/mmcblk0p12 blkdevparts=mmcblk0:1536K(uboot),1536K(uboot_bk),1024K(env),20480K(param),6144K(logo),1024K(dtb),65536K(kernel),1024K(atf),1024K(optee),1024K(recovery_dtb),75776K(recovery),4587520K(rootfs),393216K(soc),2478080K(opt)
+[    0.000000] mem_setup = M all_mem_size = 2048
+[    0.000000] Unknown kernel command line parameters "board_id=0x0,boot_reason=0x8, ax_boot_delay=10", will be passed to user space.
+[    0.000000] Dentry cache hash table entries: 262144 (order: 9, 2097152 bytes, linear)
+[    0.000000] Inode-cache hash table entries: 131072 (order: 8, 1048576 bytes, linear)
+[    0.000000] mem auto-init: stack:off, heap alloc:off, heap free:off
+[    0.000000] Virtual kernel memory layout:
+[    0.000000]     modules : 0xffff800000000000 - 0xffff800008000000   (   128 MB)
+[    0.000000]     vmalloc : 0xffff800008000000 - 0xfffffbfff0000000   (126975 GB)
+[    0.000000]       .text : 0xffff800008000000 - 0xffff800008c40000   ( 12544 KB)
+[    0.000000]     .rodata : 0xffff800008c40000 - 0xffff8000090a0000   (  4480 KB)
+[    0.000000]       .init : 0xffff8000090a0000 - 0xffff800009110000   (   448 KB)
+[    0.000000]       .data : 0xffff800009110000 - 0xffff800009
+[    1.556152] raid6: neonx2   xor()  1885 MB/s
+[    1.726206] raid6: neonx1   gen()  2370 MB/s
+
+
+[DONE]
